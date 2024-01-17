@@ -4,9 +4,9 @@
   "version": "0.1.0",
   "description": "A Strapi application",
   "scripts": {
-    "develop": "nvm use && strapi develop",
-    "start": "nvm use && strapi start",
-    "build": "nvm use && strapi build",
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
     "strapi": "strapi"
   },
   "devDependencies": {},
