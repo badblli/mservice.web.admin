@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_global_navbars",
+  "info": {
+    "displayName": "Navbar",
+    "icon": "layer"
+  },
+  "options": {},
+  "attributes": {
+    "links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.links"
+    },
+    "Logo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "NavTitle": {
+      "type": "string"
+    },
+    "LoginTitle": {
+      "type": "string"
+    }
+  }
+}

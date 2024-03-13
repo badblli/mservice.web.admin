@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "page_definitions",
+  "info": {
+    "singularName": "page-definition",
+    "pluralName": "page-definitions",
+    "displayName": "Page Definition",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "Name": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    }
+  }
+}

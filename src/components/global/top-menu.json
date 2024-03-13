@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_global_top_menus",
+  "info": {
+    "displayName": "TopMenu",
+    "icon": "filter"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "links": {
+      "displayName": "links",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.links"
+    }
+  }
+}

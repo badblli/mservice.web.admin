@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_shared_ferries",
+  "info": {
+    "displayName": "Ferries",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "where": {
+      "type": "string"
+    },
+    "img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "price": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    },
+    "dateText": {
+      "type": "string"
+    }
+  }
+}

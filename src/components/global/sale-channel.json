@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_global_sale_channels",
+  "info": {
+    "displayName": "SaleChannel",
+    "icon": "key"
+  },
+  "options": {},
+  "attributes": {
+    "channel": {
+      "type": "enumeration",
+      "enum": [
+        "Samosa",
+        "Rodosa",
+        "Midilliye",
+        "Kosa",
+        "Meise",
+        "Sakıza"
+      ],
+      "required": true,
+      "default": "Samosa"
+    }
+  }
+}

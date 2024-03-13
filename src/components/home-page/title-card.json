@@ -1,0 +1,50 @@
+{
+  "collectionName": "components_home_page_title_cards",
+  "info": {
+    "displayName": "TitleCard",
+    "icon": "cube",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "campaignTitle": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "visaTitle": {
+      "type": "string"
+    },
+    "visaDescription": {
+      "type": "string"
+    },
+    "toursTitle": {
+      "type": "string"
+    },
+    "toursDescription": {
+      "type": "string"
+    },
+    "toursButtonText": {
+      "type": "string"
+    },
+    "toursImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "campaignImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -8,7 +8,7 @@
 //                 port: env("SMTP_PORT", 587),
 //                 auth: {
 //                     user: "info@depoantalya.com",
-//                     pass: "Ss182Y6603",
+//                     pass: "3@S_i_7Ud",
 //                 },
 //                 // ... any custom nodemailer options
 //             },

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_contact_bars",
+  "info": {
+    "displayName": "ContactBar",
+    "icon": "phone"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "btnLabel": {
+      "type": "string"
+    },
+    "btnHref": {
+      "type": "string"
+    }
+  }
+}

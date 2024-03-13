@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_tours",
+  "info": {
+    "displayName": "Tours",
+    "icon": "cube"
+  },
+  "options": {},
+  "attributes": {
+    "img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "duration": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "price": {
+      "type": "string"
+    }
+  }
+}

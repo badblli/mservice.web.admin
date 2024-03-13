@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_global_footers",
+  "info": {
+    "displayName": "Footer",
+    "icon": "collapse",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "ContactBar": {
+      "displayName": "ContactBar",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.contact-bar"
+    },
+    "FooterMain": {
+      "displayName": "FooterColumns",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.footer-columns"
+    }
+  }
+}

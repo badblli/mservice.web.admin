@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "singularName": "page",
+    "pluralName": "pages",
+    "displayName": "Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "layout": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "global.top-menu",
+        "global.navbar",
+        "home-page.home-page",
+        "home-page.title-card",
+        "home-page.tour-card",
+        "home-page.card-splide"
+      ]
+    },
+    "saleChannel": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "Samosa",
+        "Rodosa",
+        "Midilliye",
+        "Kosa",
+        "Meise",
+        "Sakıza"
+      ]
+    },
+    "pageName": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "Home",
+        "Price",
+        "Ticket",
+        "Schedule",
+        "Account",
+        "Payment"
+      ]
+    }
+  }
+}
