@@ -8,7 +8,9 @@ export interface GlobalFooter extends Schema.Component {
     description: '';
   };
   attributes: {
-    ContactBar: Attribute.Component<'shared.contact-bar', true>;
+    ContactBar: Attribute.Component<'shared.contact-bar'>;
+    footerBrand: Attribute.Component<'shared.footer-brand'>;
+    footerAreas: Attribute.Component<'shared.footer-areas', true>;
   };
 }
 
@@ -149,6 +151,33 @@ export interface SharedFerries extends Schema.Component {
   };
 }
 
+export interface SharedFooterAreas extends Schema.Component {
+  collectionName: 'components_shared_footer_areas';
+  info: {
+    displayName: 'FooterAreas';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    subItem: Attribute.Component<'shared.sub-item', true>;
+  };
+}
+
+export interface SharedFooterBrand extends Schema.Component {
+  collectionName: 'components_shared_footer_brands';
+  info: {
+    displayName: 'FooterBrand';
+    icon: 'cube';
+    description: '';
+  };
+  attributes: {
+    logo: Attribute.Media;
+    title: Attribute.String;
+    copyright: Attribute.String;
+    slogan: Attribute.Text;
+  };
+}
+
 export interface SharedLinks extends Schema.Component {
   collectionName: 'components_shared_links';
   info: {
@@ -160,6 +189,17 @@ export interface SharedLinks extends Schema.Component {
     label: Attribute.String;
     target: Attribute.Enumeration<['_blank']>;
     isExternal: Attribute.Boolean & Attribute.DefaultTo<false>;
+  };
+}
+
+export interface SharedSubItem extends Schema.Component {
+  collectionName: 'components_shared_sub_items';
+  info: {
+    displayName: 'subItem';
+    icon: 'filter';
+  };
+  attributes: {
+    text: Attribute.String;
   };
 }
 
@@ -190,7 +230,10 @@ declare module '@strapi/types' {
       'home-page.tour-card': HomePageTourCard;
       'shared.contact-bar': SharedContactBar;
       'shared.ferries': SharedFerries;
+      'shared.footer-areas': SharedFooterAreas;
+      'shared.footer-brand': SharedFooterBrand;
       'shared.links': SharedLinks;
+      'shared.sub-item': SharedSubItem;
       'shared.tours': SharedTours;
     }
   }

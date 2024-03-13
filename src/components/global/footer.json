@@ -10,8 +10,18 @@
     "ContactBar": {
       "displayName": "ContactBar",
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "shared.contact-bar"
+    },
+    "footerBrand": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.footer-brand"
+    },
+    "footerAreas": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.footer-areas"
     }
   }
 }

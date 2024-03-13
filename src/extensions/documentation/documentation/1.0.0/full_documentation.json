@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-03-13T10:22:16.141Z"
+    "x-generation-date": "2024-03-13T11:46:24.436Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -113,6 +113,9 @@
                 },
                 {
                   "$ref": "#/components/schemas/HomePageCardSplideComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/GlobalFooterComponent"
                 }
               ]
             }
@@ -174,6 +177,9 @@
                     },
                     {
                       "$ref": "#/components/schemas/HomePageCardSplideComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/GlobalFooterComponent"
                     }
                   ]
                 }
@@ -345,6 +351,9 @@
                 },
                 {
                   "$ref": "#/components/schemas/HomePageCardSplideComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/GlobalFooterComponent"
                 }
               ]
             }
@@ -1984,6 +1993,227 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SharedFerriesComponent"
+            }
+          }
+        }
+      },
+      "SharedContactBarComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "btnLabel": {
+            "type": "string"
+          },
+          "btnHref": {
+            "type": "string"
+          }
+        }
+      },
+      "SharedFooterBrandComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "logo": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "alternativeText": {
+                        "type": "string"
+                      },
+                      "caption": {
+                        "type": "string"
+                      },
+                      "width": {
+                        "type": "integer"
+                      },
+                      "height": {
+                        "type": "integer"
+                      },
+                      "formats": {},
+                      "hash": {
+                        "type": "string"
+                      },
+                      "ext": {
+                        "type": "string"
+                      },
+                      "mime": {
+                        "type": "string"
+                      },
+                      "size": {
+                        "type": "number",
+                        "format": "float"
+                      },
+                      "url": {
+                        "type": "string"
+                      },
+                      "previewUrl": {
+                        "type": "string"
+                      },
+                      "provider": {
+                        "type": "string"
+                      },
+                      "provider_metadata": {},
+                      "related": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "attributes": {
+                                  "type": "object",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "folder": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "attributes": {
+                                "type": "object",
+                                "properties": {}
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "folderPath": {
+                        "type": "string"
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "createdBy": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "attributes": {
+                                "type": "object",
+                                "properties": {}
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "updatedBy": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "attributes": {
+                                "type": "object",
+                                "properties": {}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "title": {
+            "type": "string"
+          },
+          "copyright": {
+            "type": "string"
+          },
+          "slogan": {
+            "type": "string"
+          }
+        }
+      },
+      "SharedFooterAreasComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "subItem": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "text": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "GlobalFooterComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "ContactBar": {
+            "$ref": "#/components/schemas/SharedContactBarComponent"
+          },
+          "footerBrand": {
+            "$ref": "#/components/schemas/SharedFooterBrandComponent"
+          },
+          "footerAreas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SharedFooterAreasComponent"
             }
           }
         }

@@ -386,7 +386,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'home-page.home-page',
         'home-page.title-card',
         'home-page.tour-card',
-        'home-page.card-splide'
+        'home-page.card-splide',
+        'global.footer'
       ]
     > &
       Attribute.SetPluginOptions<{

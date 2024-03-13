@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_footer_areas",
+  "info": {
+    "displayName": "FooterAreas",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subItem": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.sub-item"
+    }
+  }
+}
