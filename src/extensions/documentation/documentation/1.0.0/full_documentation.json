@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-03-13T11:46:24.436Z"
+    "x-generation-date": "2024-03-13T12:08:45.979Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1148,6 +1148,54 @@
           }
         }
       },
+      "SharedSearchBarComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "SearchFerryTicket": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "title": {
+                "type": "string"
+              },
+              "from": {
+                "type": "string"
+              },
+              "to": {
+                "type": "string"
+              },
+              "ticketType": {
+                "type": "string"
+              },
+              "roundtrip": {
+                "type": "string"
+              },
+              "passengers": {
+                "type": "string"
+              }
+            }
+          },
+          "SearchReservation": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "number"
+              },
+              "reservationNo": {
+                "type": "string"
+              },
+              "passengerName": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
       "HomePageHomePageComponent": {
         "type": "object",
         "properties": {
@@ -1305,11 +1353,17 @@
           "subtitle": {
             "type": "string"
           },
+          "price": {
+            "type": "string"
+          },
           "btnText": {
             "type": "string"
           },
           "btnLink": {
             "type": "string"
+          },
+          "search": {
+            "$ref": "#/components/schemas/SharedSearchBarComponent"
           }
         }
       },

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_search_reservations",
+  "info": {
+    "displayName": "SearchReservation",
+    "icon": "search"
+  },
+  "options": {},
+  "attributes": {
+    "reservationNo": {
+      "type": "string"
+    },
+    "passengerName": {
+      "type": "string"
+    }
+  }
+}

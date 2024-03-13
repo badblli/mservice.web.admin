@@ -21,11 +21,20 @@
     "subtitle": {
       "type": "string"
     },
+    "price": {
+      "type": "string"
+    },
     "btnText": {
       "type": "string"
     },
     "btnLink": {
       "type": "string"
+    },
+    
+    "search": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.search-bar"
     }
   }
 }

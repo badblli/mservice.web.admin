@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_search_bars",
+  "info": {
+    "displayName": "SearchBar",
+    "icon": "search",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "SearchFerryTicket": {
+      "displayName": "FerryTicket",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.ferry-ticket"
+    },
+    "SearchReservation": {
+      "displayName": "SearchReservation",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.search-reservation"
+    }
+  }
+}

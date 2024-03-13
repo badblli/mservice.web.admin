@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_ferry_tickets",
+  "info": {
+    "displayName": "FerryTicket"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "to": {
+      "type": "string"
+    },
+    "ticketType": {
+      "type": "string"
+    },
+    "roundtrip": {
+      "type": "string"
+    },
+    "passengers": {
+      "type": "string"
+    }
+  }
+}

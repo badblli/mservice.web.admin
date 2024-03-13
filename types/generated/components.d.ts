@@ -80,8 +80,10 @@ export interface HomePageHomePage extends Schema.Component {
     img: Attribute.Media & Attribute.Required;
     title: Attribute.String;
     subtitle: Attribute.String;
+    price: Attribute.String;
     btnText: Attribute.String;
     btnLink: Attribute.String;
+    search: Attribute.Component<'shared.search-bar'>;
   };
 }
 
@@ -151,6 +153,21 @@ export interface SharedFerries extends Schema.Component {
   };
 }
 
+export interface SharedFerryTicket extends Schema.Component {
+  collectionName: 'components_shared_ferry_tickets';
+  info: {
+    displayName: 'FerryTicket';
+  };
+  attributes: {
+    title: Attribute.String;
+    from: Attribute.String;
+    to: Attribute.String;
+    ticketType: Attribute.String;
+    roundtrip: Attribute.String;
+    passengers: Attribute.String;
+  };
+}
+
 export interface SharedFooterAreas extends Schema.Component {
   collectionName: 'components_shared_footer_areas';
   info: {
@@ -192,6 +209,31 @@ export interface SharedLinks extends Schema.Component {
   };
 }
 
+export interface SharedSearchBar extends Schema.Component {
+  collectionName: 'components_shared_search_bars';
+  info: {
+    displayName: 'SearchBar';
+    icon: 'search';
+    description: '';
+  };
+  attributes: {
+    SearchFerryTicket: Attribute.Component<'shared.ferry-ticket'>;
+    SearchReservation: Attribute.Component<'shared.search-reservation'>;
+  };
+}
+
+export interface SharedSearchReservation extends Schema.Component {
+  collectionName: 'components_shared_search_reservations';
+  info: {
+    displayName: 'SearchReservation';
+    icon: 'search';
+  };
+  attributes: {
+    reservationNo: Attribute.String;
+    passengerName: Attribute.String;
+  };
+}
+
 export interface SharedSubItem extends Schema.Component {
   collectionName: 'components_shared_sub_items';
   info: {
@@ -230,9 +272,12 @@ declare module '@strapi/types' {
       'home-page.tour-card': HomePageTourCard;
       'shared.contact-bar': SharedContactBar;
       'shared.ferries': SharedFerries;
+      'shared.ferry-ticket': SharedFerryTicket;
       'shared.footer-areas': SharedFooterAreas;
       'shared.footer-brand': SharedFooterBrand;
       'shared.links': SharedLinks;
+      'shared.search-bar': SharedSearchBar;
+      'shared.search-reservation': SharedSearchReservation;
       'shared.sub-item': SharedSubItem;
       'shared.tours': SharedTours;
     }
