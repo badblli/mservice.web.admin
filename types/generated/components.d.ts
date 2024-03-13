@@ -9,7 +9,6 @@ export interface GlobalFooter extends Schema.Component {
   };
   attributes: {
     ContactBar: Attribute.Component<'shared.contact-bar', true>;
-    FooterMain: Attribute.Component<'shared.footer-columns'>;
   };
 }
 
@@ -150,21 +149,6 @@ export interface SharedFerries extends Schema.Component {
   };
 }
 
-export interface SharedFooterColumns extends Schema.Component {
-  collectionName: 'components_shared_footer_columns';
-  info: {
-    displayName: 'FooterMain';
-    description: '';
-  };
-  attributes: {
-    FooterLogo: Attribute.Media;
-    title: Attribute.String;
-    copyRightTitle: Attribute.String;
-    subscriberText: Attribute.String;
-    subscriberEmail: Attribute.String;
-  };
-}
-
 export interface SharedLinks extends Schema.Component {
   collectionName: 'components_shared_links';
   info: {
@@ -206,7 +190,6 @@ declare module '@strapi/types' {
       'home-page.tour-card': HomePageTourCard;
       'shared.contact-bar': SharedContactBar;
       'shared.ferries': SharedFerries;
-      'shared.footer-columns': SharedFooterColumns;
       'shared.links': SharedLinks;
       'shared.tours': SharedTours;
     }
