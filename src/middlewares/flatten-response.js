@@ -1,3 +1,4 @@
+// src/middlewares/flatten-response.js
 function flattenArray(obj) {
   return obj.map(e => flatten(e));
 }
@@ -18,19 +19,14 @@ function flattenAttrs(obj) {
 }
 
 function flatten(obj) {
-  if(Array.isArray(obj)) {
+  if (Array.isArray(obj)) {
     return flattenArray(obj);
   }
-  if(obj && obj.data) {
+  if (obj && obj.data) {
     return flattenData(obj);
   }
-  if(obj && obj.attributes) {
+  if (obj && obj.attributes) {
     return flattenAttrs(obj);
-  }
-  for (var k in obj) {
-    if(typeof obj[k] == "object") {
-      obj[k] = flatten(obj[k]);
-    }
   }
   return obj;
 }
@@ -40,7 +36,11 @@ async function respond(ctx, next) {
   if (!ctx.url.startsWith('/api')) {
     return;
   }
-  ctx.response.body = flatten(ctx.response.body.data)
+  console.log(`API request (${ctx.url}) detected, transforming response json...`);
+  ctx.response.body = {
+    data: flatten(ctx.response.body.data),
+    meta: ctx.response.body.meta
+  };
 }
 
 module.exports = () => respond;

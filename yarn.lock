@@ -1992,7 +1992,7 @@
     "@strapi/utils" "4.17.1"
     "fs-extra" "10.0.0"
 
-"@strapi/strapi@^4.0.0", "@strapi/strapi@^4.10.5", "@strapi/strapi@^4.15.1", "@strapi/strapi@^4.3.4", "@strapi/strapi@^4.4.0", "@strapi/strapi@4.17.1":
+"@strapi/strapi@^4.0.0", "@strapi/strapi@^4.0.7", "@strapi/strapi@^4.10.5", "@strapi/strapi@^4.15.1", "@strapi/strapi@^4.3.4", "@strapi/strapi@^4.4.0", "@strapi/strapi@4.17.1":
   "integrity" "sha512-Pk1mDbdmi0DRUr1lMKOYmnmxCgfWUAzTHw1hXDant/ErHxrTy5tGvH0P5C0pCQ/tIrQQhfycFJ1m6hG03K3RLw=="
   "resolved" "https://registry.npmjs.org/@strapi/strapi/-/strapi-4.17.1.tgz"
   "version" "4.17.1"
@@ -9132,6 +9132,16 @@
     "node-fetch" "2.6.9"
     "react-singleton-hook" "3.3.0"
 
+"strapi-plugin-populate-deep@^3.0.1":
+  "integrity" "sha512-7t1bPPBN1AGKZlFT/6qsqmwgd7SzTA9CNzEBSzeYEjL/e0GKD2lf4wF11C2vMkfsQW2GhRAXZQRCGlLnV2XHFQ=="
+  "resolved" "https://registry.npmjs.org/strapi-plugin-populate-deep/-/strapi-plugin-populate-deep-3.0.1.tgz"
+  "version" "3.0.1"
+
+"strapi-plugin-transformer@^3.1.2":
+  "integrity" "sha512-aRjWqrZJ2QcsSDqOE27xzzmDG1c+yg8o9yUb5zFhR94+4zbGxTpLQndelkWtzNaLv5s2HhExx1JyCn/F9GZPpQ=="
+  "resolved" "https://registry.npmjs.org/strapi-plugin-transformer/-/strapi-plugin-transformer-3.1.2.tgz"
+  "version" "3.1.2"
+
 "stream-chain@^2.2.5", "stream-chain@2.2.5":
   "integrity" "sha512-1TJmBx6aSWqZ4tx7aTpBDXK0/e2hhcNSTV8+CbFJtDjbb+I1mZ8lHit0Grw9GRT+6JbIrrDd8esncgBi8aBXGA=="
   "resolved" "https://registry.npmjs.org/stream-chain/-/stream-chain-2.2.5.tgz"
@@ -10124,7 +10134,7 @@
   "resolved" "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   "version" "0.1.0"
 
-"yup@0.32.9":
+"yup@^0.32.9", "yup@0.32.9":
   "integrity" "sha512-Ci1qN+i2H0XpY7syDQ0k5zKQ/DoxO0LzPg8PAR/X4Mpj6DqaeCoIYEEjDJwhArh3Fa7GWbQQVDZKeXYlSH4JMg=="
   "resolved" "https://registry.npmjs.org/yup/-/yup-0.32.9.tgz"
   "version" "0.32.9"

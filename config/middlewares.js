@@ -6,6 +6,7 @@ module.exports = [
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
+  'global::flatten-response',
   'strapi::session',
   'strapi::favicon',
   'strapi::public',
