@@ -30,7 +30,10 @@
         "home-page.title-card",
         "home-page.tour-card",
         "home-page.card-splide",
-        "global.footer"
+        "global.footer",
+        "home-page.categories",
+        "price-page.price-page",
+        "journey-page.journey-page"
       ]
     },
     "saleChannel": {
@@ -60,10 +63,18 @@
         "Home",
         "Price",
         "Ticket",
-        "Schedule",
+        "Journey",
         "Account",
         "Payment"
       ]
+    },
+    "pageTitle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

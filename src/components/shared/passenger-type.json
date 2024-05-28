@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_passenger_types",
+  "info": {
+    "displayName": "PassengerType",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "TypeName": {
+      "type": "string"
+    }
+  }
+}

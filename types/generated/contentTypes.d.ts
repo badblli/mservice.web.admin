@@ -387,7 +387,10 @@ export interface ApiPagePage extends Schema.CollectionType {
         'home-page.title-card',
         'home-page.tour-card',
         'home-page.card-splide',
-        'global.footer'
+        'global.footer',
+        'home-page.categories',
+        'price-page.price-page',
+        'journey-page.journey-page'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -404,8 +407,14 @@ export interface ApiPagePage extends Schema.CollectionType {
         };
       }>;
     pageName: Attribute.Enumeration<
-      ['Home', 'Price', 'Ticket', 'Schedule', 'Account', 'Payment']
+      ['Home', 'Price', 'Ticket', 'Journey', 'Account', 'Payment']
     > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    pageTitle: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

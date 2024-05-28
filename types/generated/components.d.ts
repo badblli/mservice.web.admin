@@ -19,12 +19,14 @@ export interface GlobalNavbar extends Schema.Component {
   info: {
     displayName: 'Navbar';
     icon: 'layer';
+    description: '';
   };
   attributes: {
     links: Attribute.Component<'shared.links', true>;
     Logo: Attribute.Media;
     NavTitle: Attribute.String;
     LoginTitle: Attribute.String;
+    SecNavTitle: Attribute.String;
   };
 }
 
@@ -66,6 +68,21 @@ export interface HomePageCardSplide extends Schema.Component {
     title: Attribute.String;
     description: Attribute.Text;
     Ferry: Attribute.Component<'shared.ferries', true>;
+  };
+}
+
+export interface HomePageCategories extends Schema.Component {
+  collectionName: 'components_home_page_categories';
+  info: {
+    displayName: 'Categories';
+  };
+  attributes: {
+    title: Attribute.String;
+    subtitle: Attribute.String;
+    items: Attribute.Component<'shared.categories-item', true>;
+    subElement: Attribute.String;
+    subRouter: Attribute.String;
+    subRouterUrl: Attribute.String;
   };
 }
 
@@ -124,6 +141,40 @@ export interface HomePageTourCard extends Schema.Component {
   };
 }
 
+export interface JourneyPageJourneyPage extends Schema.Component {
+  collectionName: 'components_journey_page_journey_pages';
+  info: {
+    displayName: 'Journey-page';
+  };
+  attributes: {
+    notes: Attribute.Component<'shared.sub-item', true>;
+    journeyTable: Attribute.Component<'shared.table'>;
+  };
+}
+
+export interface PricePagePricePage extends Schema.Component {
+  collectionName: 'components_price_page_price_pages';
+  info: {
+    displayName: 'PriceTable';
+    description: '';
+  };
+  attributes: {
+    whichFerry: Attribute.String;
+    PriceTable: Attribute.Component<'shared.table', true>;
+  };
+}
+
+export interface SharedCategoriesItem extends Schema.Component {
+  collectionName: 'components_shared_categories_items';
+  info: {
+    displayName: 'CategoriesItem';
+  };
+  attributes: {
+    title: Attribute.String;
+    img: Attribute.Media;
+  };
+}
+
 export interface SharedContactBar extends Schema.Component {
   collectionName: 'components_shared_contact_bars';
   info: {
@@ -134,6 +185,16 @@ export interface SharedContactBar extends Schema.Component {
     title: Attribute.String;
     btnLabel: Attribute.String;
     btnHref: Attribute.String;
+  };
+}
+
+export interface SharedDynamicSubItem extends Schema.Component {
+  collectionName: 'components_shared_dynamic_sub_items';
+  info: {
+    displayName: 'dynamicSubItem';
+  };
+  attributes: {
+    item: Attribute.Component<'shared.sub-item', true>;
   };
 }
 
@@ -157,6 +218,7 @@ export interface SharedFerryTicket extends Schema.Component {
   collectionName: 'components_shared_ferry_tickets';
   info: {
     displayName: 'FerryTicket';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
@@ -165,6 +227,10 @@ export interface SharedFerryTicket extends Schema.Component {
     ticketType: Attribute.String;
     roundtrip: Attribute.String;
     passengers: Attribute.String;
+    date: Attribute.String;
+    PassengerType: Attribute.Component<'shared.passenger-type', true>;
+    choosePerson: Attribute.String;
+    submitBtn: Attribute.String;
   };
 }
 
@@ -209,6 +275,27 @@ export interface SharedLinks extends Schema.Component {
   };
 }
 
+export interface SharedPassengerType extends Schema.Component {
+  collectionName: 'components_shared_passenger_types';
+  info: {
+    displayName: 'PassengerType';
+    description: '';
+  };
+  attributes: {
+    TypeName: Attribute.String;
+  };
+}
+
+export interface SharedRows extends Schema.Component {
+  collectionName: 'components_shared_rows';
+  info: {
+    displayName: 'rows';
+  };
+  attributes: {
+    row: Attribute.Component<'shared.sub-item', true>;
+  };
+}
+
 export interface SharedSearchBar extends Schema.Component {
   collectionName: 'components_shared_search_bars';
   info: {
@@ -245,6 +332,19 @@ export interface SharedSubItem extends Schema.Component {
   };
 }
 
+export interface SharedTable extends Schema.Component {
+  collectionName: 'components_shared_tables';
+  info: {
+    displayName: 'Table';
+    description: '';
+  };
+  attributes: {
+    tableTitle: Attribute.String;
+    headers: Attribute.Component<'shared.sub-item', true>;
+    rows: Attribute.Component<'shared.rows', true>;
+  };
+}
+
 export interface SharedTours extends Schema.Component {
   collectionName: 'components_shared_tours';
   info: {
@@ -267,18 +367,26 @@ declare module '@strapi/types' {
       'global.sale-channel': GlobalSaleChannel;
       'global.top-menu': GlobalTopMenu;
       'home-page.card-splide': HomePageCardSplide;
+      'home-page.categories': HomePageCategories;
       'home-page.home-page': HomePageHomePage;
       'home-page.title-card': HomePageTitleCard;
       'home-page.tour-card': HomePageTourCard;
+      'journey-page.journey-page': JourneyPageJourneyPage;
+      'price-page.price-page': PricePagePricePage;
+      'shared.categories-item': SharedCategoriesItem;
       'shared.contact-bar': SharedContactBar;
+      'shared.dynamic-sub-item': SharedDynamicSubItem;
       'shared.ferries': SharedFerries;
       'shared.ferry-ticket': SharedFerryTicket;
       'shared.footer-areas': SharedFooterAreas;
       'shared.footer-brand': SharedFooterBrand;
       'shared.links': SharedLinks;
+      'shared.passenger-type': SharedPassengerType;
+      'shared.rows': SharedRows;
       'shared.search-bar': SharedSearchBar;
       'shared.search-reservation': SharedSearchReservation;
       'shared.sub-item': SharedSubItem;
+      'shared.table': SharedTable;
       'shared.tours': SharedTours;
     }
   }

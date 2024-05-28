@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_dynamic_sub_items",
+  "info": {
+    "displayName": "dynamicSubItem"
+  },
+  "options": {},
+  "attributes": {
+    "item": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.sub-item"
+    }
+  }
+}

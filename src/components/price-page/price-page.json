@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_price_page_price_pages",
+  "info": {
+    "displayName": "PriceTable",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "whichFerry": {
+      "type": "string"
+    },
+    "PriceTable": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.table"
+    }
+  }
+}

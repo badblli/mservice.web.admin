@@ -1,7 +1,8 @@
 {
   "collectionName": "components_shared_ferry_tickets",
   "info": {
-    "displayName": "FerryTicket"
+    "displayName": "FerryTicket",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -21,6 +22,21 @@
       "type": "string"
     },
     "passengers": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "PassengerType": {
+      "displayName": "PassengerType",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.passenger-type"
+    },
+    "choosePerson": {
+      "type": "string"
+    },
+    "submitBtn": {
       "type": "string"
     }
   }

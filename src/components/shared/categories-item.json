@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_categories_items",
+  "info": {
+    "displayName": "CategoriesItem"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-03-13T13:53:55.568Z"
+    "x-generation-date": "2024-04-16T11:39:44.068Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -116,6 +116,15 @@
                 },
                 {
                   "$ref": "#/components/schemas/GlobalFooterComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/HomePageCategoriesComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PricePagePricePageComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/JourneyPageJourneyPageComponent"
                 }
               ]
             }
@@ -137,10 +146,13 @@
               "Home",
               "Price",
               "Ticket",
-              "Schedule",
+              "Journey",
               "Account",
               "Payment"
             ]
+          },
+          "pageTitle": {
+            "type": "string"
           },
           "locale": {
             "type": "string"
@@ -180,6 +192,15 @@
                     },
                     {
                       "$ref": "#/components/schemas/GlobalFooterComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/HomePageCategoriesComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PricePagePricePageComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/JourneyPageJourneyPageComponent"
                     }
                   ]
                 }
@@ -201,10 +222,13 @@
                   "Home",
                   "Price",
                   "Ticket",
-                  "Schedule",
+                  "Journey",
                   "Account",
                   "Payment"
                 ]
+              },
+              "pageTitle": {
+                "type": "string"
               },
               "locale": {
                 "type": "string"
@@ -354,6 +378,15 @@
                 },
                 {
                   "$ref": "#/components/schemas/GlobalFooterComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/HomePageCategoriesComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PricePagePricePageComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/JourneyPageJourneyPageComponent"
                 }
               ]
             }
@@ -375,10 +408,13 @@
               "Home",
               "Price",
               "Ticket",
-              "Schedule",
+              "Journey",
               "Account",
               "Payment"
             ]
+          },
+          "pageTitle": {
+            "type": "string"
           },
           "createdAt": {
             "type": "string",
@@ -1145,6 +1181,9 @@
           },
           "LoginTitle": {
             "type": "string"
+          },
+          "SecNavTitle": {
+            "type": "string"
           }
         }
       },
@@ -1176,6 +1215,29 @@
                 "type": "string"
               },
               "passengers": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string"
+              },
+              "PassengerType": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "TypeName": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "choosePerson": {
+                "type": "string"
+              },
+              "submitBtn": {
                 "type": "string"
               }
             }
@@ -2269,6 +2331,289 @@
             "items": {
               "$ref": "#/components/schemas/SharedFooterAreasComponent"
             }
+          }
+        }
+      },
+      "SharedCategoriesItemComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "title": {
+            "type": "string"
+          },
+          "img": {
+            "type": "object",
+            "properties": {
+              "data": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "number"
+                  },
+                  "attributes": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "alternativeText": {
+                        "type": "string"
+                      },
+                      "caption": {
+                        "type": "string"
+                      },
+                      "width": {
+                        "type": "integer"
+                      },
+                      "height": {
+                        "type": "integer"
+                      },
+                      "formats": {},
+                      "hash": {
+                        "type": "string"
+                      },
+                      "ext": {
+                        "type": "string"
+                      },
+                      "mime": {
+                        "type": "string"
+                      },
+                      "size": {
+                        "type": "number",
+                        "format": "float"
+                      },
+                      "url": {
+                        "type": "string"
+                      },
+                      "previewUrl": {
+                        "type": "string"
+                      },
+                      "provider": {
+                        "type": "string"
+                      },
+                      "provider_metadata": {},
+                      "related": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "number"
+                                },
+                                "attributes": {
+                                  "type": "object",
+                                  "properties": {}
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "folder": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "attributes": {
+                                "type": "object",
+                                "properties": {}
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "folderPath": {
+                        "type": "string"
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                      },
+                      "createdBy": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "attributes": {
+                                "type": "object",
+                                "properties": {}
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "updatedBy": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "number"
+                              },
+                              "attributes": {
+                                "type": "object",
+                                "properties": {}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "HomePageCategoriesComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "subtitle": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SharedCategoriesItemComponent"
+            }
+          },
+          "subElement": {
+            "type": "string"
+          },
+          "subRouter": {
+            "type": "string"
+          },
+          "subRouterUrl": {
+            "type": "string"
+          }
+        }
+      },
+      "SharedTableComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "tableTitle": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "text": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "number"
+                },
+                "row": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "text": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "PricePagePricePageComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "whichFerry": {
+            "type": "string"
+          },
+          "PriceTable": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SharedTableComponent"
+            }
+          }
+        }
+      },
+      "SharedSubItemComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "text": {
+            "type": "string"
+          }
+        }
+      },
+      "JourneyPageJourneyPageComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SharedSubItemComponent"
+            }
+          },
+          "journeyTable": {
+            "$ref": "#/components/schemas/SharedTableComponent"
           }
         }
       },

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_home_page_categories",
+  "info": {
+    "displayName": "Categories"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.categories-item"
+    },
+    "subElement": {
+      "type": "string"
+    },
+    "subRouter": {
+      "type": "string"
+    },
+    "subRouterUrl": {
+      "type": "string"
+    }
+  }
+}

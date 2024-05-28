@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_journey_page_journey_pages",
+  "info": {
+    "displayName": "Journey-page"
+  },
+  "options": {},
+  "attributes": {
+    "notes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.sub-item"
+    },
+    "journeyTable": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.table"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_shared_tables",
+  "info": {
+    "displayName": "Table",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "tableTitle": {
+      "type": "string"
+    },
+    "headers": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.sub-item"
+    },
+    "rows": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.rows"
+    }
+  }
+}
