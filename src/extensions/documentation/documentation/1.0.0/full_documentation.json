@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-06-01T16:47:17.141Z"
+    "x-generation-date": "2024-06-01T18:33:27.665Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -143,6 +143,12 @@
                 },
                 {
                   "$ref": "#/components/schemas/PassengerPagePassengersComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PassengerPageChangePassengerChangeModalComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/SharedAlertModalComponent"
                 }
               ]
             }
@@ -238,6 +244,12 @@
                     },
                     {
                       "$ref": "#/components/schemas/PassengerPagePassengersComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PassengerPageChangePassengerChangeModalComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SharedAlertModalComponent"
                     }
                   ]
                 }
@@ -443,6 +455,12 @@
                 },
                 {
                   "$ref": "#/components/schemas/PassengerPagePassengersComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PassengerPageChangePassengerChangeModalComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/SharedAlertModalComponent"
                 }
               ]
             }
@@ -2737,6 +2755,9 @@
           },
           "age": {
             "type": "string"
+          },
+          "typeId": {
+            "type": "integer"
           }
         }
       },
@@ -2825,6 +2846,9 @@
           },
           "billingBtn": {
             "type": "string"
+          },
+          "requiredField": {
+            "type": "string"
           }
         }
       },
@@ -2841,6 +2865,46 @@
             "type": "string"
           },
           "cost": {
+            "type": "string"
+          }
+        }
+      },
+      "PassengerPageChangePassengerChangeModalComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "ConfirmBtn": {
+            "type": "string"
+          },
+          "CancelBtn": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        }
+      },
+      "SharedAlertModalComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "ConfirmBtn": {
+            "type": "string"
+          },
+          "CancelBtn": {
             "type": "string"
           }
         }

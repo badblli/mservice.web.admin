@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_alert_modals",
+  "info": {
+    "displayName": "AlertModal"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "ConfirmBtn": {
+      "type": "string"
+    },
+    "CancelBtn": {
+      "type": "string"
+    }
+  }
+}

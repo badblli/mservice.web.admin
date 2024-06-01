@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_passenger_page_change_passenger_change_modals",
+  "info": {
+    "displayName": "ChangePassengerChangeModal",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "ConfirmBtn": {
+      "type": "string"
+    },
+    "CancelBtn": {
+      "type": "string"
+    },
+    "text": {
+      "type": "richtext"
+    }
+  }
+}

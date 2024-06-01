@@ -152,6 +152,20 @@ export interface JourneyPageJourneyPage extends Schema.Component {
   };
 }
 
+export interface PassengerPageChangePassengerChangeModal
+  extends Schema.Component {
+  collectionName: 'components_passenger_page_change_passenger_change_modals';
+  info: {
+    displayName: 'ChangePassengerChangeModal';
+    description: '';
+  };
+  attributes: {
+    ConfirmBtn: Attribute.String;
+    CancelBtn: Attribute.String;
+    text: Attribute.RichText;
+  };
+}
+
 export interface PassengerPagePassengerDetail extends Schema.Component {
   collectionName: 'components_passenger_page_passenger_details';
   info: {
@@ -166,6 +180,7 @@ export interface PassengerPagePassengerDetail extends Schema.Component {
     note: Attribute.String;
     supportBtn: Attribute.String;
     billingBtn: Attribute.String;
+    requiredField: Attribute.String;
   };
 }
 
@@ -185,10 +200,12 @@ export interface PassengerPagePassengerType extends Schema.Component {
   collectionName: 'components_passenger_page_passenger_types';
   info: {
     displayName: 'PassengerType';
+    description: '';
   };
   attributes: {
     type: Attribute.String;
     age: Attribute.String;
+    typeId: Attribute.Integer;
   };
 }
 
@@ -223,6 +240,18 @@ export interface PricePagePricePage extends Schema.Component {
   attributes: {
     whichFerry: Attribute.String;
     PriceTable: Attribute.Component<'shared.table', true>;
+  };
+}
+
+export interface SharedAlertModal extends Schema.Component {
+  collectionName: 'components_shared_alert_modals';
+  info: {
+    displayName: 'AlertModal';
+  };
+  attributes: {
+    text: Attribute.String;
+    ConfirmBtn: Attribute.String;
+    CancelBtn: Attribute.String;
   };
 }
 
@@ -462,11 +491,13 @@ declare module '@strapi/types' {
       'home-page.title-card': HomePageTitleCard;
       'home-page.tour-card': HomePageTourCard;
       'journey-page.journey-page': JourneyPageJourneyPage;
+      'passenger-page.change-passenger-change-modal': PassengerPageChangePassengerChangeModal;
       'passenger-page.passenger-detail': PassengerPagePassengerDetail;
       'passenger-page.passenger-page': PassengerPagePassengerPage;
       'passenger-page.passenger-type': PassengerPagePassengerType;
       'passenger-page.passengers': PassengerPagePassengers;
       'price-page.price-page': PricePagePricePage;
+      'shared.alert-modal': SharedAlertModal;
       'shared.categories-item': SharedCategoriesItem;
       'shared.contact-bar': SharedContactBar;
       'shared.dynamic-sub-item': SharedDynamicSubItem;

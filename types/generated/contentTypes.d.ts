@@ -396,7 +396,9 @@ export interface ApiPagePage extends Schema.CollectionType {
         'passenger-page.passenger-detail',
         'passenger-page.passenger-page',
         'passenger-page.passenger-type',
-        'passenger-page.passengers'
+        'passenger-page.passengers',
+        'passenger-page.change-passenger-change-modal',
+        'shared.alert-modal'
       ]
     > &
       Attribute.SetPluginOptions<{

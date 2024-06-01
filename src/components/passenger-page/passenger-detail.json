@@ -32,6 +32,9 @@
     },
     "billingBtn": {
       "type": "string"
+    },
+    "requiredField": {
+      "type": "string"
     }
   }
 }
