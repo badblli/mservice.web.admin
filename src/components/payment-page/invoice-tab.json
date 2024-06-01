@@ -1,0 +1,51 @@
+{
+  "collectionName": "components_payment_page_invoice_tabs",
+  "info": {
+    "displayName": "InvoiceTab"
+  },
+  "options": {},
+  "attributes": {
+    "tabTitle": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "newInvoiceBtn": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "surname": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "identity": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "taxNumber": {
+      "type": "string"
+    },
+    "taxOffice": {
+      "type": "string"
+    },
+    "saveBtn": {
+      "type": "string"
+    }
+  }
+}

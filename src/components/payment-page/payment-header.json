@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_payment_page_payment_headers",
+  "info": {
+    "displayName": "PaymentHeader"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "cost": {
+      "type": "string"
+    }
+  }
+}

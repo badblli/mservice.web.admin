@@ -41,7 +41,10 @@
         "passenger-page.passenger-type",
         "passenger-page.passengers",
         "passenger-page.change-passenger-change-modal",
-        "shared.alert-modal"
+        "shared.alert-modal",
+        "payment-page.invoice-tab",
+        "payment-page.payment-header",
+        "payment-page.payment-tab"
       ]
     },
     "saleChannel": {

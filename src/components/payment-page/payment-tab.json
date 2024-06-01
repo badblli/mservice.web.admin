@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_payment_page_payment_tabs",
+  "info": {
+    "displayName": "PaymentTab",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "tabTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "creditCardNo": {
+      "type": "string"
+    },
+    "creditCardName": {
+      "type": "string"
+    },
+    "lastUseDate": {
+      "type": "string"
+    },
+    "dayMonth": {
+      "type": "string"
+    },
+    "cvv": {
+      "type": "string"
+    },
+    "threeDigitCode": {
+      "type": "string"
+    }
+  }
+}

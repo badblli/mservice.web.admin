@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-06-01T18:33:27.665Z"
+    "x-generation-date": "2024-06-01T19:30:40.181Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -149,6 +149,15 @@
                 },
                 {
                   "$ref": "#/components/schemas/SharedAlertModalComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PaymentPageInvoiceTabComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PaymentPagePaymentHeaderComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PaymentPagePaymentTabComponent"
                 }
               ]
             }
@@ -250,6 +259,15 @@
                     },
                     {
                       "$ref": "#/components/schemas/SharedAlertModalComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PaymentPageInvoiceTabComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PaymentPagePaymentHeaderComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PaymentPagePaymentTabComponent"
                     }
                   ]
                 }
@@ -461,6 +479,15 @@
                 },
                 {
                   "$ref": "#/components/schemas/SharedAlertModalComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PaymentPageInvoiceTabComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PaymentPagePaymentHeaderComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PaymentPagePaymentTabComponent"
                 }
               ]
             }
@@ -2909,6 +2936,105 @@
           }
         }
       },
+      "PaymentPageInvoiceTabComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "tabTitle": {
+            "type": "string"
+          },
+          "subTitle": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "newInvoiceBtn": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "surname": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "identity": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "company": {
+            "type": "string"
+          },
+          "taxNumber": {
+            "type": "string"
+          },
+          "taxOffice": {
+            "type": "string"
+          },
+          "saveBtn": {
+            "type": "string"
+          }
+        }
+      },
+      "PaymentPagePaymentHeaderComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "cost": {
+            "type": "string"
+          }
+        }
+      },
+      "PaymentPagePaymentTabComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "tabTitle": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "creditCardNo": {
+            "type": "string"
+          },
+          "creditCardName": {
+            "type": "string"
+          },
+          "lastUseDate": {
+            "type": "string"
+          },
+          "dayMonth": {
+            "type": "string"
+          },
+          "cvv": {
+            "type": "string"
+          },
+          "threeDigitCode": {
+            "type": "string"
+          }
+        }
+      },
       "PageDefinitionLocalizationRequest": {
         "required": [
           "Name",
@@ -2917,6 +3043,75 @@
         "type": "object",
         "properties": {
           "Name": {
+            "type": "string"
+          },
+          "InvoiceTab": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaymentPageInvoiceTabComponent"
+            }
+          },
+          "InvoiceTabTopTitle": {
+            "type": "string"
+          },
+          "PaymentTabTopTitle": {
+            "type": "string"
+          },
+          "PaymentTab": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaymentPagePaymentTabComponent"
+            }
+          },
+          "OrderSummartTopTitle": {
+            "type": "string"
+          },
+          "adultPassenger": {
+            "type": "string"
+          },
+          "childPassenger": {
+            "type": "string"
+          },
+          "babyPassenger": {
+            "type": "string"
+          },
+          "passengerInformationTitle": {
+            "type": "string"
+          },
+          "DepartureDate": {
+            "type": "string"
+          },
+          "DestinationDate": {
+            "type": "string"
+          },
+          "DestinationPort": {
+            "type": "string"
+          },
+          "DeparturePort": {
+            "type": "string"
+          },
+          "MilePoint": {
+            "type": "string"
+          },
+          "MyMilesPoints": {
+            "type": "string"
+          },
+          "Use": {
+            "type": "string"
+          },
+          "TotalPayment": {
+            "type": "string"
+          },
+          "KDV": {
+            "type": "string"
+          },
+          "CreateAcc": {
+            "type": "string"
+          },
+          "Pay": {
+            "type": "string"
+          },
+          "ThreeDigitCode": {
             "type": "string"
           },
           "locale": {
@@ -2937,6 +3132,75 @@
             "type": "object",
             "properties": {
               "Name": {
+                "type": "string"
+              },
+              "InvoiceTab": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PaymentPageInvoiceTabComponent"
+                }
+              },
+              "InvoiceTabTopTitle": {
+                "type": "string"
+              },
+              "PaymentTabTopTitle": {
+                "type": "string"
+              },
+              "PaymentTab": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/PaymentPagePaymentTabComponent"
+                }
+              },
+              "OrderSummartTopTitle": {
+                "type": "string"
+              },
+              "adultPassenger": {
+                "type": "string"
+              },
+              "childPassenger": {
+                "type": "string"
+              },
+              "babyPassenger": {
+                "type": "string"
+              },
+              "passengerInformationTitle": {
+                "type": "string"
+              },
+              "DepartureDate": {
+                "type": "string"
+              },
+              "DestinationDate": {
+                "type": "string"
+              },
+              "DestinationPort": {
+                "type": "string"
+              },
+              "DeparturePort": {
+                "type": "string"
+              },
+              "MilePoint": {
+                "type": "string"
+              },
+              "MyMilesPoints": {
+                "type": "string"
+              },
+              "Use": {
+                "type": "string"
+              },
+              "TotalPayment": {
+                "type": "string"
+              },
+              "KDV": {
+                "type": "string"
+              },
+              "CreateAcc": {
+                "type": "string"
+              },
+              "Pay": {
+                "type": "string"
+              },
+              "ThreeDigitCode": {
                 "type": "string"
               },
               "locale": {
@@ -3067,6 +3331,75 @@
         ],
         "properties": {
           "Name": {
+            "type": "string"
+          },
+          "InvoiceTab": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaymentPageInvoiceTabComponent"
+            }
+          },
+          "InvoiceTabTopTitle": {
+            "type": "string"
+          },
+          "PaymentTabTopTitle": {
+            "type": "string"
+          },
+          "PaymentTab": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaymentPagePaymentTabComponent"
+            }
+          },
+          "OrderSummartTopTitle": {
+            "type": "string"
+          },
+          "adultPassenger": {
+            "type": "string"
+          },
+          "childPassenger": {
+            "type": "string"
+          },
+          "babyPassenger": {
+            "type": "string"
+          },
+          "passengerInformationTitle": {
+            "type": "string"
+          },
+          "DepartureDate": {
+            "type": "string"
+          },
+          "DestinationDate": {
+            "type": "string"
+          },
+          "DestinationPort": {
+            "type": "string"
+          },
+          "DeparturePort": {
+            "type": "string"
+          },
+          "MilePoint": {
+            "type": "string"
+          },
+          "MyMilesPoints": {
+            "type": "string"
+          },
+          "Use": {
+            "type": "string"
+          },
+          "TotalPayment": {
+            "type": "string"
+          },
+          "KDV": {
+            "type": "string"
+          },
+          "CreateAcc": {
+            "type": "string"
+          },
+          "Pay": {
+            "type": "string"
+          },
+          "ThreeDigitCode": {
             "type": "string"
           },
           "createdAt": {

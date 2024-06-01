@@ -231,6 +231,58 @@ export interface PassengerPagePassengers extends Schema.Component {
   };
 }
 
+export interface PaymentPageInvoiceTab extends Schema.Component {
+  collectionName: 'components_payment_page_invoice_tabs';
+  info: {
+    displayName: 'InvoiceTab';
+  };
+  attributes: {
+    tabTitle: Attribute.String;
+    subTitle: Attribute.String;
+    description: Attribute.String;
+    newInvoiceBtn: Attribute.String;
+    name: Attribute.String;
+    surname: Attribute.String;
+    email: Attribute.String;
+    identity: Attribute.String;
+    phone: Attribute.String;
+    address: Attribute.String;
+    company: Attribute.String;
+    taxNumber: Attribute.String;
+    taxOffice: Attribute.String;
+    saveBtn: Attribute.String;
+  };
+}
+
+export interface PaymentPagePaymentHeader extends Schema.Component {
+  collectionName: 'components_payment_page_payment_headers';
+  info: {
+    displayName: 'PaymentHeader';
+  };
+  attributes: {
+    title: Attribute.String;
+    cost: Attribute.String;
+  };
+}
+
+export interface PaymentPagePaymentTab extends Schema.Component {
+  collectionName: 'components_payment_page_payment_tabs';
+  info: {
+    displayName: 'PaymentTab';
+    description: '';
+  };
+  attributes: {
+    tabTitle: Attribute.String;
+    description: Attribute.String;
+    creditCardNo: Attribute.String;
+    creditCardName: Attribute.String;
+    lastUseDate: Attribute.String;
+    dayMonth: Attribute.String;
+    cvv: Attribute.String;
+    threeDigitCode: Attribute.String;
+  };
+}
+
 export interface PricePagePricePage extends Schema.Component {
   collectionName: 'components_price_page_price_pages';
   info: {
@@ -496,6 +548,9 @@ declare module '@strapi/types' {
       'passenger-page.passenger-page': PassengerPagePassengerPage;
       'passenger-page.passenger-type': PassengerPagePassengerType;
       'passenger-page.passengers': PassengerPagePassengers;
+      'payment-page.invoice-tab': PaymentPageInvoiceTab;
+      'payment-page.payment-header': PaymentPagePaymentHeader;
+      'payment-page.payment-tab': PaymentPagePaymentTab;
       'price-page.price-page': PricePagePricePage;
       'shared.alert-modal': SharedAlertModal;
       'shared.categories-item': SharedCategoriesItem;
