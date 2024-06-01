@@ -105,36 +105,30 @@ module.exports = {
     //     console.log('Sale Channels:', saleChannels);
     //     const updatedSaleChannels = saleChannels.filter(channel => channel !== result.saleChannel);
     //     console.log('Updated Sale Channels:', updatedSaleChannels);
-    //     const defaultLocale = 'tr';
-    //     console.log('Default Locale:', defaultLocale);
 
-    //     // if (result.locale === defaultLocale) {
     //     console.log(`Processing entries for other locales...`);
-    //     for (const locale of updatedLocales) {
+    //     for (const locale of locales) {
     //         try {
-    //             // Veriyi filtreleyelim
+    //             // Filter the data
     //             const filteredData = removeIds(result);
 
-    //             // Her bir saleChannel için yeni giriş oluşturalım
-    //             for (const saleChannel of updatedSaleChannels) {
-
+    //             // Create new entries for each saleChannel
+    //             for (const saleChannel of saleChannels) {
     //                 console.log(`Creating entry for saleChannel ${saleChannel}...`);
     //                 await strapi.entityService.create('api::page.page', {
     //                     data: {
     //                         ...filteredData,
-    //                         locale: locale.code,
+    //                         locale: locale.code, // Assuming you want to use a specific locale
     //                         saleChannel: saleChannel
     //                     },
     //                 });
     //                 console.log(`Successfully created entry for locale ${result.locale} and saleChannel ${saleChannel}`);
-
     //             }
     //         } catch (error) {
     //             console.error(`Error creating entry for locale ${result.locale}:`, error);
     //         }
     //     }
-    //     // } else {
-    //     //     console.log(`Entry locale is not the default locale (${defaultLocale}). No additional entries created.`);
-    //     // }
-    // },
+
+    // }
+
 };
