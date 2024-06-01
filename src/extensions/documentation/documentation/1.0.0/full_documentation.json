@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-06-01T12:01:33.331Z"
+    "x-generation-date": "2024-06-01T14:39:40.510Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -125,6 +125,24 @@
                 },
                 {
                   "$ref": "#/components/schemas/JourneyPageJourneyPageComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/TicketPageTicketsHeaderComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/TicketPageTicketsListComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PassengerPagePassengerDetailComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PassengerPagePassengerPageComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PassengerPagePassengerTypeComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PassengerPagePassengersComponent"
                 }
               ]
             }
@@ -146,6 +164,7 @@
               "Home",
               "Price",
               "Ticket",
+              "Passenger",
               "Journey",
               "Account",
               "Payment"
@@ -201,6 +220,24 @@
                     },
                     {
                       "$ref": "#/components/schemas/JourneyPageJourneyPageComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/TicketPageTicketsHeaderComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/TicketPageTicketsListComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PassengerPagePassengerDetailComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PassengerPagePassengerPageComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PassengerPagePassengerTypeComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PassengerPagePassengersComponent"
                     }
                   ]
                 }
@@ -222,6 +259,7 @@
                   "Home",
                   "Price",
                   "Ticket",
+                  "Passenger",
                   "Journey",
                   "Account",
                   "Payment"
@@ -387,6 +425,24 @@
                 },
                 {
                   "$ref": "#/components/schemas/JourneyPageJourneyPageComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/TicketPageTicketsHeaderComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/TicketPageTicketsListComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PassengerPagePassengerDetailComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PassengerPagePassengerPageComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PassengerPagePassengerTypeComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PassengerPagePassengersComponent"
                 }
               ]
             }
@@ -408,6 +464,7 @@
               "Home",
               "Price",
               "Ticket",
+              "Passenger",
               "Journey",
               "Account",
               "Payment"
@@ -2614,6 +2671,177 @@
           },
           "journeyTable": {
             "$ref": "#/components/schemas/SharedTableComponent"
+          }
+        }
+      },
+      "TicketPageTicketsHeaderComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "searchTicket": {
+            "type": "string"
+          },
+          "paid": {
+            "type": "string"
+          }
+        }
+      },
+      "TicketPageTicketsListComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "companyName": {
+            "type": "string"
+          },
+          "departure": {
+            "type": "string"
+          },
+          "arrival": {
+            "type": "string"
+          },
+          "selectBtnText": {
+            "type": "string"
+          },
+          "more": {
+            "type": "string"
+          },
+          "continue": {
+            "type": "string"
+          },
+          "changeSelection": {
+            "type": "string"
+          }
+        }
+      },
+      "PassengerPagePassengerTypeComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "age": {
+            "type": "string"
+          }
+        }
+      },
+      "PassengerPagePassengersComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "updateInformation": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "surname": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "birth": {
+            "type": "string"
+          },
+          "nation": {
+            "type": "string"
+          },
+          "passport": {
+            "type": "string"
+          },
+          "passenderId": {
+            "type": "string"
+          },
+          "mailPassenger": {
+            "type": "string"
+          },
+          "clear": {
+            "type": "string"
+          },
+          "save": {
+            "type": "string"
+          }
+        }
+      },
+      "PassengerPagePassengerDetailComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "passengerInformation": {
+            "type": "string"
+          },
+          "addPassenger": {
+            "type": "string"
+          },
+          "passengerType": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PassengerPagePassengerTypeComponent"
+            }
+          },
+          "passengers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PassengerPagePassengersComponent"
+            }
+          },
+          "note": {
+            "type": "string"
+          },
+          "supportBtn": {
+            "type": "string"
+          },
+          "billingBtn": {
+            "type": "string"
+          }
+        }
+      },
+      "PassengerPagePassengerPageComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "searchTicket": {
+            "type": "string"
+          },
+          "cost": {
+            "type": "string"
           }
         }
       },

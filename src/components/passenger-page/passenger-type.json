@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_passenger_page_passenger_types",
+  "info": {
+    "displayName": "PassengerType"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "age": {
+      "type": "string"
+    }
+  }
+}

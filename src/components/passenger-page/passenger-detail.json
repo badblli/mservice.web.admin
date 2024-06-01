@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_passenger_page_passenger_details",
+  "info": {
+    "displayName": "PassengerDetail",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "passengerInformation": {
+      "type": "string"
+    },
+    "addPassenger": {
+      "type": "string"
+    },
+    "passengerType": {
+      "displayName": "PassengerType",
+      "type": "component",
+      "repeatable": true,
+      "component": "passenger-page.passenger-type"
+    },
+    "passengers": {
+      "displayName": "Passengers",
+      "type": "component",
+      "repeatable": true,
+      "component": "passenger-page.passengers"
+    },
+    "note": {
+      "type": "string"
+    },
+    "supportBtn": {
+      "type": "string"
+    },
+    "billingBtn": {
+      "type": "string"
+    }
+  }
+}

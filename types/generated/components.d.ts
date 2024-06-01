@@ -152,6 +152,68 @@ export interface JourneyPageJourneyPage extends Schema.Component {
   };
 }
 
+export interface PassengerPagePassengerDetail extends Schema.Component {
+  collectionName: 'components_passenger_page_passenger_details';
+  info: {
+    displayName: 'PassengerDetail';
+    description: '';
+  };
+  attributes: {
+    passengerInformation: Attribute.String;
+    addPassenger: Attribute.String;
+    passengerType: Attribute.Component<'passenger-page.passenger-type', true>;
+    passengers: Attribute.Component<'passenger-page.passengers', true>;
+    note: Attribute.String;
+    supportBtn: Attribute.String;
+    billingBtn: Attribute.String;
+  };
+}
+
+export interface PassengerPagePassengerPage extends Schema.Component {
+  collectionName: 'components_passenger_page_passenger_pages';
+  info: {
+    displayName: 'PassengerHeader';
+    description: '';
+  };
+  attributes: {
+    searchTicket: Attribute.String;
+    cost: Attribute.String;
+  };
+}
+
+export interface PassengerPagePassengerType extends Schema.Component {
+  collectionName: 'components_passenger_page_passenger_types';
+  info: {
+    displayName: 'PassengerType';
+  };
+  attributes: {
+    type: Attribute.String;
+    age: Attribute.String;
+  };
+}
+
+export interface PassengerPagePassengers extends Schema.Component {
+  collectionName: 'components_passenger_page_passengers';
+  info: {
+    displayName: 'Passengers';
+  };
+  attributes: {
+    type: Attribute.String;
+    updateInformation: Attribute.String;
+    name: Attribute.String;
+    surname: Attribute.String;
+    email: Attribute.String;
+    phone: Attribute.String;
+    birth: Attribute.String;
+    nation: Attribute.String;
+    passport: Attribute.String;
+    passenderId: Attribute.String;
+    mailPassenger: Attribute.String;
+    clear: Attribute.String;
+    save: Attribute.String;
+  };
+}
+
 export interface PricePagePricePage extends Schema.Component {
   collectionName: 'components_price_page_price_pages';
   info: {
@@ -359,6 +421,34 @@ export interface SharedTours extends Schema.Component {
   };
 }
 
+export interface TicketPageTicketsHeader extends Schema.Component {
+  collectionName: 'components_ticket_page_tickets_headers';
+  info: {
+    displayName: 'TicketsHeader';
+  };
+  attributes: {
+    searchTicket: Attribute.String;
+    paid: Attribute.String;
+  };
+}
+
+export interface TicketPageTicketsList extends Schema.Component {
+  collectionName: 'components_ticket_page_tickets_lists';
+  info: {
+    displayName: 'TicketsList';
+    description: '';
+  };
+  attributes: {
+    companyName: Attribute.String;
+    departure: Attribute.String;
+    arrival: Attribute.String;
+    selectBtnText: Attribute.String;
+    more: Attribute.String;
+    continue: Attribute.String;
+    changeSelection: Attribute.String;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -372,6 +462,10 @@ declare module '@strapi/types' {
       'home-page.title-card': HomePageTitleCard;
       'home-page.tour-card': HomePageTourCard;
       'journey-page.journey-page': JourneyPageJourneyPage;
+      'passenger-page.passenger-detail': PassengerPagePassengerDetail;
+      'passenger-page.passenger-page': PassengerPagePassengerPage;
+      'passenger-page.passenger-type': PassengerPagePassengerType;
+      'passenger-page.passengers': PassengerPagePassengers;
       'price-page.price-page': PricePagePricePage;
       'shared.categories-item': SharedCategoriesItem;
       'shared.contact-bar': SharedContactBar;
@@ -388,6 +482,8 @@ declare module '@strapi/types' {
       'shared.sub-item': SharedSubItem;
       'shared.table': SharedTable;
       'shared.tours': SharedTours;
+      'ticket-page.tickets-header': TicketPageTicketsHeader;
+      'ticket-page.tickets-list': TicketPageTicketsList;
     }
   }
 }

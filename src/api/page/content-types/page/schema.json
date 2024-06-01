@@ -33,7 +33,13 @@
         "global.footer",
         "home-page.categories",
         "price-page.price-page",
-        "journey-page.journey-page"
+        "journey-page.journey-page",
+        "ticket-page.tickets-header",
+        "ticket-page.tickets-list",
+        "passenger-page.passenger-detail",
+        "passenger-page.passenger-page",
+        "passenger-page.passenger-type",
+        "passenger-page.passengers"
       ]
     },
     "saleChannel": {
@@ -63,6 +69,7 @@
         "Home",
         "Price",
         "Ticket",
+        "Passenger",
         "Journey",
         "Account",
         "Payment"

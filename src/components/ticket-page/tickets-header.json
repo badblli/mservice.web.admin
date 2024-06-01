@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_ticket_page_tickets_headers",
+  "info": {
+    "displayName": "TicketsHeader"
+  },
+  "options": {},
+  "attributes": {
+    "searchTicket": {
+      "type": "string"
+    },
+    "paid": {
+      "type": "string"
+    }
+  }
+}

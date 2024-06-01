@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_passenger_page_passenger_pages",
+  "info": {
+    "displayName": "PassengerHeader",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "searchTicket": {
+      "type": "string"
+    },
+    "cost": {
+      "type": "string"
+    }
+  }
+}

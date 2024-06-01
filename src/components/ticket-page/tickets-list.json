@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_ticket_page_tickets_lists",
+  "info": {
+    "displayName": "TicketsList",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "companyName": {
+      "type": "string"
+    },
+    "departure": {
+      "type": "string"
+    },
+    "arrival": {
+      "type": "string"
+    },
+    "selectBtnText": {
+      "type": "string"
+    },
+    "more": {
+      "type": "string"
+    },
+    "continue": {
+      "type": "string"
+    },
+    "changeSelection": {
+      "type": "string"
+    }
+  }
+}

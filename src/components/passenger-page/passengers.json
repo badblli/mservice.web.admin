@@ -1,0 +1,48 @@
+{
+  "collectionName": "components_passenger_page_passengers",
+  "info": {
+    "displayName": "Passengers"
+  },
+  "options": {},
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "updateInformation": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "surname": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "birth": {
+      "type": "string"
+    },
+    "nation": {
+      "type": "string"
+    },
+    "passport": {
+      "type": "string"
+    },
+    "passenderId": {
+      "type": "string"
+    },
+    "mailPassenger": {
+      "type": "string"
+    },
+    "clear": {
+      "type": "string"
+    },
+    "save": {
+      "type": "string"
+    }
+  }
+}

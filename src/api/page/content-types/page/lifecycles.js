@@ -99,6 +99,7 @@ module.exports = {
     //         { code: 'el', name: 'Greek' }
     //     ];
     //     console.log('Locales:', locales);
+    //     const updatedLocales = locales.filter(locale => locale.code !== result.locale);
 
     //     const saleChannels = ['Samosa', 'Rodosa', 'Midilliye', 'Kosa', 'Meise', 'Sakıza'];
     //     console.log('Sale Channels:', saleChannels);
@@ -109,7 +110,7 @@ module.exports = {
 
     //     // if (result.locale === defaultLocale) {
     //     console.log(`Processing entries for other locales...`);
-    //     for (const locale of locales) {
+    //     for (const locale of updatedLocales) {
     //         try {
     //             // Veriyi filtreleyelim
     //             const filteredData = removeIds(result);
