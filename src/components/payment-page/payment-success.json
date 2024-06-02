@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_payment_page_payment_successes",
+  "info": {
+    "displayName": "PaymentSuccess"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "reservationNo": {
+      "type": "string"
+    },
+    "earnedMiles": {
+      "type": "string"
+    },
+    "point": {
+      "type": "string"
+    },
+    "addWallet": {
+      "type": "string"
+    },
+    "downloadTicket": {
+      "type": "string"
+    },
+    "sendPrinter": {
+      "type": "string"
+    },
+    "goBackHome": {
+      "type": "string"
+    },
+    "goMyReservation": {
+      "type": "string"
+    }
+  }
+}

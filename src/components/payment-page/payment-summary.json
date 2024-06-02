@@ -1,0 +1,64 @@
+{
+  "collectionName": "components_payment_page_payment_summaries",
+  "info": {
+    "displayName": "PaymentSummary",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "adultPassenger": {
+      "type": "string"
+    },
+    "childPassenger": {
+      "type": "string"
+    },
+    "babyPassenger": {
+      "type": "string"
+    },
+    "departureDate": {
+      "type": "string"
+    },
+    "destinationDate": {
+      "type": "string"
+    },
+    "departurePort": {
+      "type": "string"
+    },
+    "destinationPort": {
+      "type": "string"
+    },
+    "EarnedMilePoints": {
+      "type": "string"
+    },
+    "myMiles": {
+      "type": "string"
+    },
+    "useIt": {
+      "type": "string"
+    },
+    "cancelAndRefund": {
+      "type": "string"
+    },
+    "totalPayment": {
+      "type": "string"
+    },
+    "kdv": {
+      "type": "string"
+    },
+    "createAcc": {
+      "type": "string"
+    },
+    "payBtn": {
+      "type": "string"
+    },
+    "passengerInformation": {
+      "type": "string"
+    },
+    "payDescription": {
+      "type": "string"
+    }
+  }
+}

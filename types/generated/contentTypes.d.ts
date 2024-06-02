@@ -401,7 +401,10 @@ export interface ApiPagePage extends Schema.CollectionType {
         'shared.alert-modal',
         'payment-page.invoice-tab',
         'payment-page.payment-header',
-        'payment-page.payment-tab'
+        'payment-page.payment-tab',
+        'payment-page.payment-detail',
+        'payment-page.payment-summary',
+        'payment-page.payment-success'
       ]
     > &
       Attribute.SetPluginOptions<{

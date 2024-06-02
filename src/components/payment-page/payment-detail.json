@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_payment_page_payment_details",
+  "info": {
+    "displayName": "PaymentDetail",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "InvoiceTab": {
+      "type": "component",
+      "repeatable": true,
+      "component": "payment-page.invoice-tab"
+    },
+    "PaymentTab": {
+      "type": "component",
+      "repeatable": true,
+      "component": "payment-page.payment-tab"
+    },
+    "InvoiceTabTopTitle": {
+      "type": "string"
+    },
+    "PaymentTopTitle": {
+      "type": "string"
+    },
+    "PaymentSummary": {
+      "displayName": "PaymentSummary",
+      "type": "component",
+      "repeatable": false,
+      "component": "payment-page.payment-summary"
+    }
+  }
+}

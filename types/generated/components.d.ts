@@ -235,6 +235,7 @@ export interface PaymentPageInvoiceTab extends Schema.Component {
   collectionName: 'components_payment_page_invoice_tabs';
   info: {
     displayName: 'InvoiceTab';
+    description: '';
   };
   attributes: {
     tabTitle: Attribute.String;
@@ -251,6 +252,22 @@ export interface PaymentPageInvoiceTab extends Schema.Component {
     taxNumber: Attribute.String;
     taxOffice: Attribute.String;
     saveBtn: Attribute.String;
+    requiredField: Attribute.String;
+  };
+}
+
+export interface PaymentPagePaymentDetail extends Schema.Component {
+  collectionName: 'components_payment_page_payment_details';
+  info: {
+    displayName: 'PaymentDetail';
+    description: '';
+  };
+  attributes: {
+    InvoiceTab: Attribute.Component<'payment-page.invoice-tab', true>;
+    PaymentTab: Attribute.Component<'payment-page.payment-tab', true>;
+    InvoiceTabTopTitle: Attribute.String;
+    PaymentTopTitle: Attribute.String;
+    PaymentSummary: Attribute.Component<'payment-page.payment-summary'>;
   };
 }
 
@@ -262,6 +279,53 @@ export interface PaymentPagePaymentHeader extends Schema.Component {
   attributes: {
     title: Attribute.String;
     cost: Attribute.String;
+  };
+}
+
+export interface PaymentPagePaymentSuccess extends Schema.Component {
+  collectionName: 'components_payment_page_payment_successes';
+  info: {
+    displayName: 'PaymentSuccess';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.String;
+    reservationNo: Attribute.String;
+    earnedMiles: Attribute.String;
+    point: Attribute.String;
+    addWallet: Attribute.String;
+    downloadTicket: Attribute.String;
+    sendPrinter: Attribute.String;
+    goBackHome: Attribute.String;
+    goMyReservation: Attribute.String;
+  };
+}
+
+export interface PaymentPagePaymentSummary extends Schema.Component {
+  collectionName: 'components_payment_page_payment_summaries';
+  info: {
+    displayName: 'PaymentSummary';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    adultPassenger: Attribute.String;
+    childPassenger: Attribute.String;
+    babyPassenger: Attribute.String;
+    departureDate: Attribute.String;
+    destinationDate: Attribute.String;
+    departurePort: Attribute.String;
+    destinationPort: Attribute.String;
+    EarnedMilePoints: Attribute.String;
+    myMiles: Attribute.String;
+    useIt: Attribute.String;
+    cancelAndRefund: Attribute.String;
+    totalPayment: Attribute.String;
+    kdv: Attribute.String;
+    createAcc: Attribute.String;
+    payBtn: Attribute.String;
+    passengerInformation: Attribute.String;
+    payDescription: Attribute.String;
   };
 }
 
@@ -549,7 +613,10 @@ declare module '@strapi/types' {
       'passenger-page.passenger-type': PassengerPagePassengerType;
       'passenger-page.passengers': PassengerPagePassengers;
       'payment-page.invoice-tab': PaymentPageInvoiceTab;
+      'payment-page.payment-detail': PaymentPagePaymentDetail;
       'payment-page.payment-header': PaymentPagePaymentHeader;
+      'payment-page.payment-success': PaymentPagePaymentSuccess;
+      'payment-page.payment-summary': PaymentPagePaymentSummary;
       'payment-page.payment-tab': PaymentPagePaymentTab;
       'price-page.price-page': PricePagePricePage;
       'shared.alert-modal': SharedAlertModal;

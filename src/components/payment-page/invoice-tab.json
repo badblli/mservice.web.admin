@@ -1,7 +1,8 @@
 {
   "collectionName": "components_payment_page_invoice_tabs",
   "info": {
-    "displayName": "InvoiceTab"
+    "displayName": "InvoiceTab",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -45,6 +46,9 @@
       "type": "string"
     },
     "saveBtn": {
+      "type": "string"
+    },
+    "requiredField": {
       "type": "string"
     }
   }

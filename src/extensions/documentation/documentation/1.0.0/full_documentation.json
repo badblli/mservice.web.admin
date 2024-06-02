@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-06-01T19:30:40.181Z"
+    "x-generation-date": "2024-06-02T09:54:48.293Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -158,6 +158,15 @@
                 },
                 {
                   "$ref": "#/components/schemas/PaymentPagePaymentTabComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PaymentPagePaymentDetailComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PaymentPagePaymentSummaryComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PaymentPagePaymentSuccessComponent"
                 }
               ]
             }
@@ -268,6 +277,15 @@
                     },
                     {
                       "$ref": "#/components/schemas/PaymentPagePaymentTabComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PaymentPagePaymentDetailComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PaymentPagePaymentSummaryComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PaymentPagePaymentSuccessComponent"
                     }
                   ]
                 }
@@ -488,6 +506,15 @@
                 },
                 {
                   "$ref": "#/components/schemas/PaymentPagePaymentTabComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PaymentPagePaymentDetailComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PaymentPagePaymentSummaryComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/PaymentPagePaymentSuccessComponent"
                 }
               ]
             }
@@ -2983,6 +3010,9 @@
           },
           "saveBtn": {
             "type": "string"
+          },
+          "requiredField": {
+            "type": "string"
           }
         }
       },
@@ -3031,6 +3061,144 @@
             "type": "string"
           },
           "threeDigitCode": {
+            "type": "string"
+          }
+        }
+      },
+      "PaymentPagePaymentSummaryComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "adultPassenger": {
+            "type": "string"
+          },
+          "childPassenger": {
+            "type": "string"
+          },
+          "babyPassenger": {
+            "type": "string"
+          },
+          "departureDate": {
+            "type": "string"
+          },
+          "destinationDate": {
+            "type": "string"
+          },
+          "departurePort": {
+            "type": "string"
+          },
+          "destinationPort": {
+            "type": "string"
+          },
+          "EarnedMilePoints": {
+            "type": "string"
+          },
+          "myMiles": {
+            "type": "string"
+          },
+          "useIt": {
+            "type": "string"
+          },
+          "cancelAndRefund": {
+            "type": "string"
+          },
+          "totalPayment": {
+            "type": "string"
+          },
+          "kdv": {
+            "type": "string"
+          },
+          "createAcc": {
+            "type": "string"
+          },
+          "payBtn": {
+            "type": "string"
+          },
+          "passengerInformation": {
+            "type": "string"
+          },
+          "payDescription": {
+            "type": "string"
+          }
+        }
+      },
+      "PaymentPagePaymentDetailComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "InvoiceTab": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaymentPageInvoiceTabComponent"
+            }
+          },
+          "PaymentTab": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PaymentPagePaymentTabComponent"
+            }
+          },
+          "InvoiceTabTopTitle": {
+            "type": "string"
+          },
+          "PaymentTopTitle": {
+            "type": "string"
+          },
+          "PaymentSummary": {
+            "$ref": "#/components/schemas/PaymentPagePaymentSummaryComponent"
+          }
+        }
+      },
+      "PaymentPagePaymentSuccessComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "__component": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "reservationNo": {
+            "type": "string"
+          },
+          "earnedMiles": {
+            "type": "string"
+          },
+          "point": {
+            "type": "string"
+          },
+          "addWallet": {
+            "type": "string"
+          },
+          "downloadTicket": {
+            "type": "string"
+          },
+          "sendPrinter": {
+            "type": "string"
+          },
+          "goBackHome": {
+            "type": "string"
+          },
+          "goMyReservation": {
             "type": "string"
           }
         }
