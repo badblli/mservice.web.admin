@@ -50,7 +50,8 @@
         "payment-page.payment-success",
         "shared.tab",
         "shared.tab-content",
-        "global.pop-up"
+        "global.pop-up",
+        "shared.seo"
       ]
     },
     "saleChannel": {

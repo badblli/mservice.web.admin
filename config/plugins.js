@@ -38,4 +38,10 @@ module.exports = ({ env }) => ({
             defaultDepth: 6, // Default is 5
         }
     },
+    seo: {
+        enabled: true,
+    },
+    "content-versioning": {
+        enabled: true,
+    },
 });
