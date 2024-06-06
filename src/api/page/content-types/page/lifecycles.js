@@ -91,12 +91,12 @@ module.exports = {
 
     //     // const locales = Object.values(await strapi.plugins['i18n'].services.locales.list());
     //     const locales = [
-    //         { code: 'tr', name: 'Turkish' },
-    //         // { code: 'en', name: 'English' },
-    //         // { code: 'ru', name: 'Russian' },
-    //         // { code: 'uk', name: 'Ukrainian' },
-    //         // { code: 'de', name: 'German' },
-    //         // { code: 'el', name: 'Greek' }
+    //         // { code: 'tr', name: 'Turkish' },
+    //         { code: 'en', name: 'English' },
+    //         { code: 'ru', name: 'Russian' },
+    //         { code: 'uk', name: 'Ukrainian' },
+    //         { code: 'de', name: 'German' },
+    //         { code: 'el', name: 'Greek' }
     //     ];
     //     console.log('Locales:', locales);
     //     const updatedLocales = locales.filter(locale => locale.code !== result.locale);
