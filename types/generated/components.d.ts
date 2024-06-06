@@ -30,15 +30,41 @@ export interface GlobalNavbar extends Schema.Component {
   };
 }
 
+export interface GlobalPopUp extends Schema.Component {
+  collectionName: 'components_global_pop_ups';
+  info: {
+    displayName: 'PopUp';
+    icon: 'landscape';
+    description: '';
+  };
+  attributes: {
+    image: Attribute.Media;
+    fullImage: Attribute.Boolean;
+    title: Attribute.Blocks;
+    subtitle: Attribute.Blocks;
+    description: Attribute.Blocks;
+    url: Attribute.String;
+  };
+}
+
 export interface GlobalSaleChannel extends Schema.Component {
   collectionName: 'components_global_sale_channels';
   info: {
     displayName: 'SaleChannel';
     icon: 'key';
+    description: '';
   };
   attributes: {
     channel: Attribute.Enumeration<
-      ['Samosa', 'Rodosa', 'Midilliye', 'Kosa', 'Meise', 'Sak\u0131za']
+      [
+        'Samosa',
+        'Rodosa',
+        'Midilliye',
+        'Kosa',
+        'Meise',
+        'Sak\u0131za',
+        'Meander'
+      ]
     > &
       Attribute.Required &
       Attribute.DefaultTo<'Samosa'>;
@@ -539,6 +565,28 @@ export interface SharedSubItem extends Schema.Component {
   };
 }
 
+export interface SharedTabContent extends Schema.Component {
+  collectionName: 'components_shared_tab_contents';
+  info: {
+    displayName: 'TabContent';
+  };
+  attributes: {
+    Tab: Attribute.Component<'shared.tab', true>;
+  };
+}
+
+export interface SharedTab extends Schema.Component {
+  collectionName: 'components_shared_tabs';
+  info: {
+    displayName: 'Tab';
+    icon: 'stack';
+    description: '';
+  };
+  attributes: {
+    tabs: Attribute.Relation<'shared.tab', 'oneToMany', 'api::tab.tab'>;
+  };
+}
+
 export interface SharedTable extends Schema.Component {
   collectionName: 'components_shared_tables';
   info: {
@@ -599,6 +647,7 @@ declare module '@strapi/types' {
     export interface Components {
       'global.footer': GlobalFooter;
       'global.navbar': GlobalNavbar;
+      'global.pop-up': GlobalPopUp;
       'global.sale-channel': GlobalSaleChannel;
       'global.top-menu': GlobalTopMenu;
       'home-page.card-splide': HomePageCardSplide;
@@ -633,6 +682,8 @@ declare module '@strapi/types' {
       'shared.search-bar': SharedSearchBar;
       'shared.search-reservation': SharedSearchReservation;
       'shared.sub-item': SharedSubItem;
+      'shared.tab-content': SharedTabContent;
+      'shared.tab': SharedTab;
       'shared.table': SharedTable;
       'shared.tours': SharedTours;
       'ticket-page.tickets-header': TicketPageTicketsHeader;

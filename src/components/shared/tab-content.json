@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_tab_contents",
+  "info": {
+    "displayName": "TabContent"
+  },
+  "options": {},
+  "attributes": {
+    "Tab": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.tab"
+    }
+  }
+}

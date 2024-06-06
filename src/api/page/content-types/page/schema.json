@@ -47,7 +47,10 @@
         "payment-page.payment-tab",
         "payment-page.payment-detail",
         "payment-page.payment-summary",
-        "payment-page.payment-success"
+        "payment-page.payment-success",
+        "shared.tab",
+        "shared.tab-content",
+        "global.pop-up"
       ]
     },
     "saleChannel": {
@@ -63,7 +66,8 @@
         "Midilliye",
         "Kosa",
         "Meise",
-        "Sakıza"
+        "Sakıza",
+        "Meander"
       ]
     },
     "pageName": {

@@ -404,7 +404,10 @@ export interface ApiPagePage extends Schema.CollectionType {
         'payment-page.payment-tab',
         'payment-page.payment-detail',
         'payment-page.payment-summary',
-        'payment-page.payment-success'
+        'payment-page.payment-success',
+        'shared.tab',
+        'shared.tab-content',
+        'global.pop-up'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -413,7 +416,15 @@ export interface ApiPagePage extends Schema.CollectionType {
         };
       }>;
     saleChannel: Attribute.Enumeration<
-      ['Samosa', 'Rodosa', 'Midilliye', 'Kosa', 'Meise', 'Sak\u0131za']
+      [
+        'Samosa',
+        'Rodosa',
+        'Midilliye',
+        'Kosa',
+        'Meise',
+        'Sak\u0131za',
+        'Meander'
+      ]
     > &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -618,6 +629,75 @@ export interface ApiPageDefinitionPageDefinition extends Schema.CollectionType {
       'api::page-definition.page-definition',
       'oneToMany',
       'api::page-definition.page-definition'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiTabTab extends Schema.CollectionType {
+  collectionName: 'tabs';
+  info: {
+    singularName: 'tab';
+    pluralName: 'tabs';
+    displayName: 'Tab';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    from: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    to: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    contentTitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    search: Attribute.Component<'shared.search-bar'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::tab.tab', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::tab.tab', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::tab.tab',
+      'oneToMany',
+      'api::tab.tab'
     >;
     locale: Attribute.String;
   };
@@ -1041,6 +1121,7 @@ declare module '@strapi/types' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::page.page': ApiPagePage;
       'api::page-definition.page-definition': ApiPageDefinitionPageDefinition;
+      'api::tab.tab': ApiTabTab;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;

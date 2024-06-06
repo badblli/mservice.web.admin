@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_shared_tabs",
+  "info": {
+    "displayName": "Tab",
+    "icon": "stack",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "tabs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tab.tab"
+    }
+  }
+}
