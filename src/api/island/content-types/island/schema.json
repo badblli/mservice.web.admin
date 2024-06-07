@@ -1,0 +1,103 @@
+{
+  "kind": "collectionType",
+  "collectionName": "islands",
+  "info": {
+    "singularName": "island",
+    "pluralName": "islands",
+    "displayName": "Island",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "layout": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        },
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "shared.tab-content"
+      ]
+    },
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "from": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "default": "-"
+    },
+    "to": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "default": "$"
+    },
+    "description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks"
+    },
+    "contentTitle": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "default": "$  "
+    },
+    "domain": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "saleChannel": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "Samosa",
+        "Rodosa",
+        "Midilliye",
+        "Kosa",
+        "Meise",
+        "Sakıza",
+        "Meander"
+      ],
+      "default": "Meander"
+    }
+  }
+}
