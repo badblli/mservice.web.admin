@@ -27,7 +27,22 @@ function removeIds(data) {
     // Fonksiyon, güncellenmiş veriyi döndürsün
     return newData;
 }
+function getIdFromChannel(channel) {
+    console.log('Channel:', channel);
+    const channels = {
+        "Samosa": 1,
+        "Rodosa": 2,
+        "Midilliye": 3,
+        "Kosa": 4,
+        "Meise": 5,
+        "Sakıza": 6,
+        "Meander": 7
+    };
+    console.log('Channels:', channels[channel]);
+    return channels[channel] || null;
+}
 
+let isUpdating = false;
 module.exports = {
 
     // async afterUpdate(event) {
@@ -131,4 +146,37 @@ module.exports = {
 
     // }
 
+
+    // CREATE SALECHANNELID
+
+    async afterCreate(event) {
+        if (!isUpdating) {
+            isUpdating = true;
+            const { result } = event;
+            console.log('Created entry:', result);
+            // Update the saleChannel field
+            await strapi.entityService.update('api::page.page', result.id, {
+                data: {
+                    saleChannelID: getIdFromChannel(result.saleChannel)
+                }
+            });
+            isUpdating = false;
+        }
+    },
+
+    async afterUpdate(event) {
+        if (!isUpdating) {
+            isUpdating = true;
+            const { result } = event;
+            console.log('Updated entry:', result);
+            // Update the saleChannel field
+            await strapi.entityService.update('api::page.page', result.id, {
+                data: {
+                    saleChannelID: getIdFromChannel(result.saleChannel)
+                }
+            });
+            isUpdating = false;
+        }
+    }
 };
+

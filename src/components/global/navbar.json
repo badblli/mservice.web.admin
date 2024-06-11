@@ -28,6 +28,11 @@
     },
     "SecNavTitle": {
       "type": "string"
+    },
+    "hamburgerMenu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.links"
     }
   }
 }

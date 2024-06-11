@@ -27,6 +27,7 @@ export interface GlobalNavbar extends Schema.Component {
     NavTitle: Attribute.String;
     LoginTitle: Attribute.String;
     SecNavTitle: Attribute.String;
+    hamburgerMenu: Attribute.Component<'shared.links', true>;
   };
 }
 

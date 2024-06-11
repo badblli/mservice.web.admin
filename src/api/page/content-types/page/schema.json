@@ -95,6 +95,14 @@
         }
       },
       "type": "string"
+    },
+    "saleChannelID": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer"
     }
   }
 }

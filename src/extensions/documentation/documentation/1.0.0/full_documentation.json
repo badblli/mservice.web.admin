@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-06-10T08:24:54.111Z"
+    "x-generation-date": "2024-06-11T12:13:08.406Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -597,6 +597,9 @@
           "pageTitle": {
             "type": "string"
           },
+          "saleChannelID": {
+            "type": "integer"
+          },
           "locale": {
             "type": "string"
           }
@@ -728,6 +731,9 @@
               },
               "pageTitle": {
                 "type": "string"
+              },
+              "saleChannelID": {
+                "type": "integer"
               },
               "locale": {
                 "type": "string"
@@ -970,6 +976,9 @@
           },
           "pageTitle": {
             "type": "string"
+          },
+          "saleChannelID": {
+            "type": "integer"
           },
           "createdAt": {
             "type": "string",
@@ -1743,6 +1752,12 @@
           },
           "SecNavTitle": {
             "type": "string"
+          },
+          "hamburgerMenu": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SharedLinksComponent"
+            }
           }
         }
       },
