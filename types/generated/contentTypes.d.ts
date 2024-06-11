@@ -514,7 +514,9 @@ export interface ApiPagePage extends Schema.CollectionType {
         'shared.tab',
         'shared.tab-content',
         'global.pop-up',
-        'shared.seo'
+        'shared.seo',
+        'shared.header',
+        'blog-page.blog-page'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -539,7 +541,16 @@ export interface ApiPagePage extends Schema.CollectionType {
         };
       }>;
     pageName: Attribute.Enumeration<
-      ['Home', 'Price', 'Ticket', 'Passenger', 'Journey', 'Account', 'Payment']
+      [
+        'Home',
+        'Price',
+        'Ticket',
+        'Passenger',
+        'Journey',
+        'Account',
+        'Payment',
+        'Blog'
+      ]
     > &
       Attribute.SetPluginOptions<{
         i18n: {

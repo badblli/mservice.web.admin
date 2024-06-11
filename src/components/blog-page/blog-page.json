@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_blog_page_blog_pages",
+  "info": {
+    "displayName": "categories",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "items": {
+      "displayName": "categories",
+      "type": "component",
+      "repeatable": true,
+      "component": "blog-categories.categories"
+    },
+    "blogCard": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.card"
+    }
+  }
+}

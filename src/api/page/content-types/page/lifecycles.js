@@ -124,12 +124,12 @@ module.exports = {
 
     //     // const locales = Object.values(await strapi.plugins['i18n'].services.locales.list());
     //     const locales = [
-    //         // { code: 'tr', name: 'Turkish' },
+    //         { code: 'tr', name: 'Turkish' },
     //         { code: 'en', name: 'English' },
-    //         { code: 'ru', name: 'Russian' },
-    //         { code: 'uk', name: 'Ukrainian' },
-    //         { code: 'de', name: 'German' },
-    //         { code: 'el', name: 'Greek' }
+    //         // { code: 'ru', name: 'Russian' },
+    //         // { code: 'uk', name: 'Ukrainian' },
+    //         // { code: 'de', name: 'German' },
+    //         // { code: 'el', name: 'Greek' }
     //     ];
     //     console.log('Locales:', locales);
     //     const updatedLocales = locales.filter(locale => locale.code !== result.locale);
@@ -152,7 +152,8 @@ module.exports = {
     //                     data: {
     //                         ...filteredData,
     //                         locale: locale.code, // Assuming you want to use a specific locale
-    //                         saleChannel: saleChannel
+    //                         saleChannel: saleChannel,
+    //                         saleChannelID: getIdFromChannel(saleChannel)
     //                     },
     //                 });
     //                 console.log(`Successfully created entry for locale ${result.locale} and saleChannel ${saleChannel}`);
@@ -162,77 +163,77 @@ module.exports = {
     //         }
     //     }
 
+    // },
+
+
+    // // CREATE SALECHANNELID
+
+    // async afterCreate(event) {
+    //     if (!isUpdating) {
+    //         isUpdating = true;
+    //         const { result } = event;
+    //         console.log('Created entry:', result);
+    //         // Update the saleChannel field
+    //         // Update the hamburger menu items within the layout
+    //         const updatedLayout = result.layout.map(layoutItem => {
+    //             if (layoutItem.__component === 'global.navbar') {
+    //                 const updatedHamburgerMenu = layoutItem.hamburgerMenu.map(item => {
+    //                     return {
+    //                         ...item,
+    //                         subSaleChannelID: getIdFromChannel(item.label)
+    //                     };
+    //                 });
+    //                 return {
+    //                     ...layoutItem,
+    //                     hamburgerMenu: updatedHamburgerMenu
+    //                 };
+    //             }
+    //             return layoutItem;
+    //         });
+
+    //         await strapi.entityService.update('api::page.page', result.id, {
+    //             data: {
+    //                 layout: updatedLayout,
+    //                 saleChannelID: getIdFromChannel(result.saleChannel)
+    //             }
+    //         });
+    //         isUpdating = false;
+    //     }
+    // },
+
+    // async afterUpdate(event) {
+    //     if (!isUpdating) {
+    //         isUpdating = true;
+    //         const { result } = event;
+    //         console.log('Updated entry:', result);
+
+    //         // Update the hamburger menu items within the layout
+    //         const updatedLayout = result.layout.map(layoutItem => {
+    //             if (layoutItem.__component === 'global.navbar') {
+    //                 const updatedHamburgerMenu = layoutItem.hamburgerMenu.map(item => {
+    //                     return {
+    //                         ...item,
+    //                         subSaleChannelID: getIdFromChannel(item.label)
+    //                     };
+    //                 });
+    //                 return {
+    //                     ...layoutItem,
+    //                     hamburgerMenu: updatedHamburgerMenu
+    //                 };
+    //             }
+    //             return layoutItem;
+    //         });
+
+    //         // Update the entry with the new layout
+    //         await strapi.entityService.update('api::page.page', result.id, {
+    //             data: {
+    //                 layout: updatedLayout,
+    //                 saleChannelID: getIdFromChannel(result.saleChannel)
+    //             }
+    //         });
+
+    //         isUpdating = false;
+    //     }
     // }
-
-
-    // CREATE SALECHANNELID
-
-    async afterCreate(event) {
-        if (!isUpdating) {
-            isUpdating = true;
-            const { result } = event;
-            console.log('Created entry:', result);
-            // Update the saleChannel field
-            // Update the hamburger menu items within the layout
-            const updatedLayout = result.layout.map(layoutItem => {
-                if (layoutItem.__component === 'global.navbar') {
-                    const updatedHamburgerMenu = layoutItem.hamburgerMenu.map(item => {
-                        return {
-                            ...item,
-                            subSaleChannelID: getIdFromChannel(item.label)
-                        };
-                    });
-                    return {
-                        ...layoutItem,
-                        hamburgerMenu: updatedHamburgerMenu
-                    };
-                }
-                return layoutItem;
-            });
-
-            await strapi.entityService.update('api::page.page', result.id, {
-                data: {
-                    layout: updatedLayout,
-                    saleChannelID: getIdFromChannel(result.saleChannel)
-                }
-            });
-            isUpdating = false;
-        }
-    },
-
-    async afterUpdate(event) {
-        if (!isUpdating) {
-            isUpdating = true;
-            const { result } = event;
-            console.log('Updated entry:', result);
-
-            // Update the hamburger menu items within the layout
-            const updatedLayout = result.layout.map(layoutItem => {
-                if (layoutItem.__component === 'global.navbar') {
-                    const updatedHamburgerMenu = layoutItem.hamburgerMenu.map(item => {
-                        return {
-                            ...item,
-                            subSaleChannelID: getIdFromChannel(item.label)
-                        };
-                    });
-                    return {
-                        ...layoutItem,
-                        hamburgerMenu: updatedHamburgerMenu
-                    };
-                }
-                return layoutItem;
-            });
-
-            // Update the entry with the new layout
-            await strapi.entityService.update('api::page.page', result.id, {
-                data: {
-                    layout: updatedLayout,
-                    saleChannelID: getIdFromChannel(result.saleChannel)
-                }
-            });
-
-            isUpdating = false;
-        }
-    }
 };
 

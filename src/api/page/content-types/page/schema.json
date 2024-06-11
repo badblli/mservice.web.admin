@@ -51,7 +51,9 @@
         "shared.tab",
         "shared.tab-content",
         "global.pop-up",
-        "shared.seo"
+        "shared.seo",
+        "shared.header",
+        "blog-page.blog-page"
       ]
     },
     "saleChannel": {
@@ -85,7 +87,8 @@
         "Passenger",
         "Journey",
         "Account",
-        "Payment"
+        "Payment",
+        "Blog"
       ]
     },
     "pageTitle": {

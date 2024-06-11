@@ -1,5 +1,29 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface BlogCategoriesCategories extends Schema.Component {
+  collectionName: 'components_blog_categories_categories';
+  info: {
+    displayName: 'categories';
+  };
+  attributes: {
+    image: Attribute.Media & Attribute.Required;
+    title: Attribute.String;
+    categoryID: Attribute.Integer;
+  };
+}
+
+export interface BlogPageBlogPage extends Schema.Component {
+  collectionName: 'components_blog_page_blog_pages';
+  info: {
+    displayName: 'categories';
+    description: '';
+  };
+  attributes: {
+    items: Attribute.Component<'blog-categories.categories', true>;
+    blogCard: Attribute.Component<'shared.card', true>;
+  };
+}
+
 export interface GlobalFooter extends Schema.Component {
   collectionName: 'components_global_footers';
   info: {
@@ -398,6 +422,19 @@ export interface SharedAlertModal extends Schema.Component {
   };
 }
 
+export interface SharedCard extends Schema.Component {
+  collectionName: 'components_shared_cards';
+  info: {
+    displayName: 'Card';
+  };
+  attributes: {
+    iamge: Attribute.Media & Attribute.Required;
+    title: Attribute.String;
+    subtitle: Attribute.String;
+    blogID: Attribute.Integer;
+  };
+}
+
 export interface SharedCategoriesItem extends Schema.Component {
   collectionName: 'components_shared_categories_items';
   info: {
@@ -492,6 +529,18 @@ export interface SharedFooterBrand extends Schema.Component {
     title: Attribute.String;
     copyright: Attribute.String;
     slogan: Attribute.Text;
+  };
+}
+
+export interface SharedHeader extends Schema.Component {
+  collectionName: 'components_shared_headers';
+  info: {
+    displayName: 'Header';
+    description: '';
+  };
+  attributes: {
+    slug: Attribute.Component<'shared.slug', true>;
+    title: Attribute.String;
   };
 }
 
@@ -608,6 +657,17 @@ export interface SharedSeo extends Schema.Component {
   };
 }
 
+export interface SharedSlug extends Schema.Component {
+  collectionName: 'components_shared_slugs';
+  info: {
+    displayName: 'slug';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String;
+  };
+}
+
 export interface SharedSubItem extends Schema.Component {
   collectionName: 'components_shared_sub_items';
   info: {
@@ -699,6 +759,8 @@ export interface TicketPageTicketsList extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'blog-categories.categories': BlogCategoriesCategories;
+      'blog-page.blog-page': BlogPageBlogPage;
       'global.footer': GlobalFooter;
       'global.navbar': GlobalNavbar;
       'global.pop-up': GlobalPopUp;
@@ -723,6 +785,7 @@ declare module '@strapi/types' {
       'payment-page.payment-tab': PaymentPagePaymentTab;
       'price-page.price-page': PricePagePricePage;
       'shared.alert-modal': SharedAlertModal;
+      'shared.card': SharedCard;
       'shared.categories-item': SharedCategoriesItem;
       'shared.contact-bar': SharedContactBar;
       'shared.dynamic-sub-item': SharedDynamicSubItem;
@@ -730,6 +793,7 @@ declare module '@strapi/types' {
       'shared.ferry-ticket': SharedFerryTicket;
       'shared.footer-areas': SharedFooterAreas;
       'shared.footer-brand': SharedFooterBrand;
+      'shared.header': SharedHeader;
       'shared.links': SharedLinks;
       'shared.meta-social': SharedMetaSocial;
       'shared.passenger-type': SharedPassengerType;
@@ -737,6 +801,7 @@ declare module '@strapi/types' {
       'shared.search-bar': SharedSearchBar;
       'shared.search-reservation': SharedSearchReservation;
       'shared.seo': SharedSeo;
+      'shared.slug': SharedSlug;
       'shared.sub-item': SharedSubItem;
       'shared.tab-content': SharedTabContent;
       'shared.tab': SharedTab;

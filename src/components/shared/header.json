@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_headers",
+  "info": {
+    "displayName": "Header",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "slug": {
+      "displayName": "slug",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.slug"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}
