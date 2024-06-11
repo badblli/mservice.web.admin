@@ -31,13 +31,31 @@ function getIdFromChannel(channel) {
     console.log('Channel:', channel);
     const channels = {
         "Samosa": 1,
+        "Samos": 1,     // English name: Samos, Greek name: Σάμος (Samos)
+        "Σάμος": 1,     // Greek name: Σάμος (Samos)
         "Rodosa": 2,
+        "Rodos": 2,     // English name: Rhodes, Greek name: Ρόδος (Rodos)
+        "Rhodes": 2,
+        "Ρόδος": 2,     // Greek name: Ρόδος (Rodos)
         "Midilliye": 3,
+        "Midilli": 3,   // English name: Lesbos, Greek name: Λέσβος (Lesvos)
+        "Lesbos": 3,
+        "Λέσβος": 3,    // Greek name: Λέσβος (Lesvos)
         "Kosa": 4,
+        "Kos": 4,       // English name: Kos, Greek name: Κως (Kos)
+        "Κως": 4,       // Greek name: Κως (Kos)
         "Meise": 5,
+        "Meis": 5,      // English name: Kastellorizo, Greek name: Καστελλόριζο (Kastellorizo)
+        "Kastellorizo": 5,
+        "Καστελλόριζο": 5, // Greek name: Καστελλόριζο (Kastellorizo)
         "Sakıza": 6,
-        "Meander": 7
-    };
+        "Sakız": 6,     // English name: Chios, Greek name: Χίος (Chios)
+        "Chios": 6,
+        "Χίος": 6,      // Greek name: Χίος (Chios)
+        "Meander": 7,   // English name: Meander (Menderes), Greek name: Μαίανδρος (Maiandros)
+        "Μαίανδρος": 7  // Greek name: Μαίανδρος (Maiandros)
+    }
+
     console.log('Channels:', channels[channel]);
     return channels[channel] || null;
 }
@@ -155,8 +173,26 @@ module.exports = {
             const { result } = event;
             console.log('Created entry:', result);
             // Update the saleChannel field
+            // Update the hamburger menu items within the layout
+            const updatedLayout = result.layout.map(layoutItem => {
+                if (layoutItem.__component === 'global.navbar') {
+                    const updatedHamburgerMenu = layoutItem.hamburgerMenu.map(item => {
+                        return {
+                            ...item,
+                            subSaleChannelID: getIdFromChannel(item.label)
+                        };
+                    });
+                    return {
+                        ...layoutItem,
+                        hamburgerMenu: updatedHamburgerMenu
+                    };
+                }
+                return layoutItem;
+            });
+
             await strapi.entityService.update('api::page.page', result.id, {
                 data: {
+                    layout: updatedLayout,
                     saleChannelID: getIdFromChannel(result.saleChannel)
                 }
             });
@@ -169,12 +205,32 @@ module.exports = {
             isUpdating = true;
             const { result } = event;
             console.log('Updated entry:', result);
-            // Update the saleChannel field
+
+            // Update the hamburger menu items within the layout
+            const updatedLayout = result.layout.map(layoutItem => {
+                if (layoutItem.__component === 'global.navbar') {
+                    const updatedHamburgerMenu = layoutItem.hamburgerMenu.map(item => {
+                        return {
+                            ...item,
+                            subSaleChannelID: getIdFromChannel(item.label)
+                        };
+                    });
+                    return {
+                        ...layoutItem,
+                        hamburgerMenu: updatedHamburgerMenu
+                    };
+                }
+                return layoutItem;
+            });
+
+            // Update the entry with the new layout
             await strapi.entityService.update('api::page.page', result.id, {
                 data: {
+                    layout: updatedLayout,
                     saleChannelID: getIdFromChannel(result.saleChannel)
                 }
             });
+
             isUpdating = false;
         }
     }

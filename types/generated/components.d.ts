@@ -500,12 +500,14 @@ export interface SharedLinks extends Schema.Component {
   info: {
     displayName: 'links';
     icon: 'link';
+    description: '';
   };
   attributes: {
     href: Attribute.String;
     label: Attribute.String;
     target: Attribute.Enumeration<['_blank']>;
     isExternal: Attribute.Boolean & Attribute.DefaultTo<false>;
+    subSaleChannelID: Attribute.Integer;
   };
 }
 

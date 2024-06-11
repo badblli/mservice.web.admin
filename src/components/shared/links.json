@@ -2,7 +2,8 @@
   "collectionName": "components_shared_links",
   "info": {
     "displayName": "links",
-    "icon": "link"
+    "icon": "link",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -21,6 +22,10 @@
     "isExternal": {
       "type": "boolean",
       "default": false
+    },
+    "subSaleChannelID": {
+      "type": "integer",
+      "required": false
     }
   }
 }
