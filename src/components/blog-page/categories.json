@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_blog_page_categories",
+  "info": {
+    "displayName": "BlogCategories"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "categoryID": {
+      "type": "integer"
+    }
+  }
+}

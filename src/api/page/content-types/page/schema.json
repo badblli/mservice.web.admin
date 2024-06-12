@@ -53,7 +53,8 @@
         "global.pop-up",
         "shared.seo",
         "shared.header",
-        "blog-page.blog-page"
+        "blog-page.blog-page",
+        "blog-page.blog-card"
       ]
     },
     "saleChannel": {

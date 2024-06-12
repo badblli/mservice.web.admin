@@ -12,6 +12,21 @@ export interface BlogCategoriesCategories extends Schema.Component {
   };
 }
 
+export interface BlogPageBlogCard extends Schema.Component {
+  collectionName: 'components_blog_page_blog_cards';
+  info: {
+    displayName: 'BlogCard';
+    description: '';
+  };
+  attributes: {
+    blog: Attribute.Relation<
+      'blog-page.blog-card',
+      'oneToOne',
+      'api::blog.blog'
+    >;
+  };
+}
+
 export interface BlogPageBlogPage extends Schema.Component {
   collectionName: 'components_blog_page_blog_pages';
   info: {
@@ -20,7 +35,18 @@ export interface BlogPageBlogPage extends Schema.Component {
   };
   attributes: {
     items: Attribute.Component<'blog-categories.categories', true>;
-    blogCard: Attribute.Component<'shared.card', true>;
+  };
+}
+
+export interface BlogPageCategories extends Schema.Component {
+  collectionName: 'components_blog_page_categories';
+  info: {
+    displayName: 'BlogCategories';
+  };
+  attributes: {
+    image: Attribute.Media & Attribute.Required;
+    title: Attribute.String;
+    categoryID: Attribute.Integer;
   };
 }
 
@@ -760,7 +786,9 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'blog-categories.categories': BlogCategoriesCategories;
+      'blog-page.blog-card': BlogPageBlogCard;
       'blog-page.blog-page': BlogPageBlogPage;
+      'blog-page.categories': BlogPageCategories;
       'global.footer': GlobalFooter;
       'global.navbar': GlobalNavbar;
       'global.pop-up': GlobalPopUp;

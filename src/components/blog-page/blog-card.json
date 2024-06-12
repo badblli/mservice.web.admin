@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_blog_page_blog_cards",
+  "info": {
+    "displayName": "BlogCard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "blog": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::blog.blog"
+    }
+  }
+}
