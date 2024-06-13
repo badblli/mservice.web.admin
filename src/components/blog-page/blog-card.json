@@ -6,9 +6,9 @@
   },
   "options": {},
   "attributes": {
-    "blog": {
+    "blogs": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::blog.blog"
     }
   }

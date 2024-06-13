@@ -19,9 +19,9 @@ export interface BlogPageBlogCard extends Schema.Component {
     description: '';
   };
   attributes: {
-    blog: Attribute.Relation<
+    blogs: Attribute.Relation<
       'blog-page.blog-card',
-      'oneToOne',
+      'oneToMany',
       'api::blog.blog'
     >;
   };
@@ -691,6 +691,7 @@ export interface SharedSlug extends Schema.Component {
   };
   attributes: {
     name: Attribute.String;
+    href: Attribute.String;
   };
 }
 
