@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_shared_card_blogs",
+  "info": {
+    "displayName": "cardBlog"
+  },
+  "options": {},
+  "attributes": {
+    "img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "locationTitle": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "btnText": {
+      "type": "string"
+    },
+    "btnLink": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_island_page_island_details",
+  "info": {
+    "displayName": "IslandDetail"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "contentTitle": {
+      "type": "string"
+    },
+    "from": {
+      "type": "string"
+    },
+    "to": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    }
+  }
+}

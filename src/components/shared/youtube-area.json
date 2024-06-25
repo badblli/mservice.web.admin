@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_youtube_areas",
+  "info": {
+    "displayName": "YoutubeArea"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "goYoutubeText": {
+      "type": "string"
+    },
+    "goYoutubeLink": {
+      "type": "string"
+    }
+  }
+}

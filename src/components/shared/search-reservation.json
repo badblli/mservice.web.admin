@@ -2,7 +2,8 @@
   "collectionName": "components_shared_search_reservations",
   "info": {
     "displayName": "SearchReservation",
-    "icon": "search"
+    "icon": "search",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -10,6 +11,12 @@
       "type": "string"
     },
     "passengerName": {
+      "type": "string"
+    },
+    "searchReservation": {
+      "type": "string"
+    },
+    "searchPNR": {
       "type": "string"
     }
   }

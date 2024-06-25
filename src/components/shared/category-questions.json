@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_category_questions",
+  "info": {
+    "displayName": "CategoryQuestions",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "CategoryQuestion": {
+      "displayName": "CategoryQuestion",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.category-question"
+    },
+    "category": {
+      "type": "string"
+    }
+  }
+}

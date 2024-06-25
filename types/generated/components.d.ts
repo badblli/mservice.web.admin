@@ -218,6 +218,65 @@ export interface HomePageTourCard extends Schema.Component {
   };
 }
 
+export interface IslandPageAddIsland extends Schema.Component {
+  collectionName: 'components_island_page_add_islands';
+  info: {
+    displayName: 'AddIsland';
+  };
+  attributes: {
+    SubSaleChannel: Attribute.String;
+    SubSaleChannelID: Attribute.Integer;
+    IslandDetails: Attribute.Component<'island-page.island-detail', true>;
+  };
+}
+
+export interface IslandPageAddTourDetail extends Schema.Component {
+  collectionName: 'components_island_page_add_tour_details';
+  info: {
+    displayName: 'AddTourDetail';
+  };
+  attributes: {
+    img: Attribute.Media & Attribute.Required;
+    title: Attribute.String;
+  };
+}
+
+export interface IslandPageIslandDetail extends Schema.Component {
+  collectionName: 'components_island_page_island_details';
+  info: {
+    displayName: 'IslandDetail';
+  };
+  attributes: {
+    title: Attribute.String;
+    contentTitle: Attribute.String;
+    from: Attribute.String;
+    to: Attribute.String;
+    description: Attribute.Blocks;
+  };
+}
+
+export interface IslandPageIslands extends Schema.Component {
+  collectionName: 'components_island_page_islands';
+  info: {
+    displayName: 'Islands';
+  };
+  attributes: {
+    AddIsland: Attribute.Component<'island-page.add-island', true>;
+  };
+}
+
+export interface IslandPageTourDetailSection extends Schema.Component {
+  collectionName: 'components_island_page_tour_detail_sections';
+  info: {
+    displayName: 'TourDetailSection';
+  };
+  attributes: {
+    title: Attribute.String;
+    subtitle: Attribute.String;
+    tourDetails: Attribute.Component<'island-page.add-tour-detail', true>;
+  };
+}
+
 export interface JourneyPageJourneyPage extends Schema.Component {
   collectionName: 'components_journey_page_journey_pages';
   info: {
@@ -448,6 +507,34 @@ export interface SharedAlertModal extends Schema.Component {
   };
 }
 
+export interface SharedBlogCard extends Schema.Component {
+  collectionName: 'components_shared_blog_cards';
+  info: {
+    displayName: 'BlogCards';
+    description: '';
+  };
+  attributes: {
+    BlogCard: Attribute.Component<'shared.card-blog', true>;
+    more: Attribute.String;
+  };
+}
+
+export interface SharedCardBlog extends Schema.Component {
+  collectionName: 'components_shared_card_blogs';
+  info: {
+    displayName: 'cardBlog';
+  };
+  attributes: {
+    img: Attribute.Media;
+    title: Attribute.String;
+    description: Attribute.Blocks;
+    locationTitle: Attribute.String;
+    location: Attribute.String;
+    btnText: Attribute.String;
+    btnLink: Attribute.String;
+  };
+}
+
 export interface SharedCard extends Schema.Component {
   collectionName: 'components_shared_cards';
   info: {
@@ -469,6 +556,30 @@ export interface SharedCategoriesItem extends Schema.Component {
   attributes: {
     title: Attribute.String;
     img: Attribute.Media;
+  };
+}
+
+export interface SharedCategoryQuestion extends Schema.Component {
+  collectionName: 'components_shared_category_question';
+  info: {
+    displayName: 'CategoryQuestion';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+  };
+}
+
+export interface SharedCategoryQuestions extends Schema.Component {
+  collectionName: 'components_shared_category_questions';
+  info: {
+    displayName: 'CategoryQuestions';
+    description: '';
+  };
+  attributes: {
+    CategoryQuestion: Attribute.Component<'shared.category-question', true>;
+    category: Attribute.String;
   };
 }
 
@@ -570,6 +681,31 @@ export interface SharedHeader extends Schema.Component {
   };
 }
 
+export interface SharedImages extends Schema.Component {
+  collectionName: 'components_shared_images';
+  info: {
+    displayName: 'Images';
+    icon: 'expand';
+  };
+  attributes: {
+    images: Attribute.Media;
+  };
+}
+
+export interface SharedIslandTours extends Schema.Component {
+  collectionName: 'components_shared_island_tours';
+  info: {
+    displayName: 'IslandTours';
+  };
+  attributes: {
+    Tours: Attribute.Component<'shared.tours', true>;
+    title: Attribute.String;
+    subtitle: Attribute.String;
+    btnText: Attribute.String;
+    btnLink: Attribute.String;
+  };
+}
+
 export interface SharedLinks extends Schema.Component {
   collectionName: 'components_shared_links';
   info: {
@@ -648,10 +784,13 @@ export interface SharedSearchReservation extends Schema.Component {
   info: {
     displayName: 'SearchReservation';
     icon: 'search';
+    description: '';
   };
   attributes: {
     reservationNo: Attribute.String;
     passengerName: Attribute.String;
+    searchReservation: Attribute.String;
+    searchPNR: Attribute.String;
   };
 }
 
@@ -746,12 +885,25 @@ export interface SharedTours extends Schema.Component {
   info: {
     displayName: 'Tours';
     icon: 'cube';
+    description: '';
   };
   attributes: {
     img: Attribute.Media;
     duration: Attribute.String;
     description: Attribute.String;
     price: Attribute.String;
+  };
+}
+
+export interface SharedYoutubeArea extends Schema.Component {
+  collectionName: 'components_shared_youtube_areas';
+  info: {
+    displayName: 'YoutubeArea';
+  };
+  attributes: {
+    title: Attribute.String;
+    goYoutubeText: Attribute.String;
+    goYoutubeLink: Attribute.String;
   };
 }
 
@@ -800,6 +952,11 @@ declare module '@strapi/types' {
       'home-page.home-page': HomePageHomePage;
       'home-page.title-card': HomePageTitleCard;
       'home-page.tour-card': HomePageTourCard;
+      'island-page.add-island': IslandPageAddIsland;
+      'island-page.add-tour-detail': IslandPageAddTourDetail;
+      'island-page.island-detail': IslandPageIslandDetail;
+      'island-page.islands': IslandPageIslands;
+      'island-page.tour-detail-section': IslandPageTourDetailSection;
       'journey-page.journey-page': JourneyPageJourneyPage;
       'passenger-page.change-passenger-change-modal': PassengerPageChangePassengerChangeModal;
       'passenger-page.passenger-detail': PassengerPagePassengerDetail;
@@ -814,8 +971,12 @@ declare module '@strapi/types' {
       'payment-page.payment-tab': PaymentPagePaymentTab;
       'price-page.price-page': PricePagePricePage;
       'shared.alert-modal': SharedAlertModal;
+      'shared.blog-card': SharedBlogCard;
+      'shared.card-blog': SharedCardBlog;
       'shared.card': SharedCard;
       'shared.categories-item': SharedCategoriesItem;
+      'shared.category-question': SharedCategoryQuestion;
+      'shared.category-questions': SharedCategoryQuestions;
       'shared.contact-bar': SharedContactBar;
       'shared.dynamic-sub-item': SharedDynamicSubItem;
       'shared.ferries': SharedFerries;
@@ -823,6 +984,8 @@ declare module '@strapi/types' {
       'shared.footer-areas': SharedFooterAreas;
       'shared.footer-brand': SharedFooterBrand;
       'shared.header': SharedHeader;
+      'shared.images': SharedImages;
+      'shared.island-tours': SharedIslandTours;
       'shared.links': SharedLinks;
       'shared.meta-social': SharedMetaSocial;
       'shared.passenger-type': SharedPassengerType;
@@ -836,6 +999,7 @@ declare module '@strapi/types' {
       'shared.tab': SharedTab;
       'shared.table': SharedTable;
       'shared.tours': SharedTours;
+      'shared.youtube-area': SharedYoutubeArea;
       'ticket-page.tickets-header': TicketPageTicketsHeader;
       'ticket-page.tickets-list': TicketPageTicketsList;
     }

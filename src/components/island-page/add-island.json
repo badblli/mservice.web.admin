@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_island_page_add_islands",
+  "info": {
+    "displayName": "AddIsland"
+  },
+  "options": {},
+  "attributes": {
+    "SubSaleChannel": {
+      "type": "string"
+    },
+    "SubSaleChannelID": {
+      "type": "integer"
+    },
+    "IslandDetails": {
+      "displayName": "Details",
+      "type": "component",
+      "repeatable": true,
+      "component": "island-page.island-detail"
+    }
+  }
+}

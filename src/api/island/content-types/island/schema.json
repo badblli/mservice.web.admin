@@ -16,20 +16,6 @@
     }
   },
   "attributes": {
-    "layout": {
-      "pluginOptions": {
-        "versions": {
-          "versioned": true
-        },
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "dynamiczone",
-      "components": [
-        "shared.tab-content"
-      ]
-    },
     "title": {
       "pluginOptions": {
         "i18n": {
@@ -98,6 +84,28 @@
         "Meander"
       ],
       "default": "Meander"
+    },
+    "layout": {
+      "pluginOptions": {
+        "versions": {
+          "versioned": true
+        },
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "island-page.tour-detail-section",
+        "home-page.tour-card",
+        "shared.table",
+        "shared.images",
+        "shared.blog-card",
+        "shared.youtube-area",
+        "shared.category-questions",
+        "shared.search-bar",
+        "shared.island-tours"
+      ]
     }
   }
 }

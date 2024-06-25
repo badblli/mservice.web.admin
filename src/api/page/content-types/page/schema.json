@@ -54,7 +54,8 @@
         "shared.seo",
         "shared.header",
         "blog-page.blog-page",
-        "blog-page.blog-card"
+        "blog-page.blog-card",
+        "island-page.islands"
       ]
     },
     "saleChannel": {

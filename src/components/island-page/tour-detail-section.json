@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_island_page_tour_detail_sections",
+  "info": {
+    "displayName": "TourDetailSection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "tourDetails": {
+      "displayName": "AddTourDetail",
+      "type": "component",
+      "repeatable": true,
+      "component": "island-page.add-tour-detail"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_island_page_add_tour_details",
+  "info": {
+    "displayName": "AddTourDetail"
+  },
+  "options": {},
+  "attributes": {
+    "img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

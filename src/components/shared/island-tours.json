@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_island_tours",
+  "info": {
+    "displayName": "IslandTours"
+  },
+  "options": {},
+  "attributes": {
+    "Tours": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.tours"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "btnText": {
+      "type": "string"
+    },
+    "btnLink": {
+      "type": "string"
+    }
+  }
+}

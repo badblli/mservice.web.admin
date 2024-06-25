@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_blog_cards",
+  "info": {
+    "displayName": "BlogCards",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "BlogCard": {
+      "displayName": "cardBlog",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.card-blog"
+    },
+    "more": {
+      "type": "string"
+    }
+  }
+}

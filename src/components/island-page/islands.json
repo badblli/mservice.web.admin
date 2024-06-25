@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_island_page_islands",
+  "info": {
+    "displayName": "Islands"
+  },
+  "options": {},
+  "attributes": {
+    "AddIsland": {
+      "displayName": "AddIsland",
+      "type": "component",
+      "repeatable": true,
+      "component": "island-page.add-island"
+    }
+  }
+}
