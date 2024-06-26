@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "channel_definitions",
+  "info": {
+    "singularName": "channel-definition",
+    "pluralName": "channel-definitions",
+    "displayName": "Channel Definition",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "saleChannel": {
+      "type": "string"
+    },
+    "saleChannelID": {
+      "type": "integer"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "domainList": {
+      "type": "json"
+    }
+  }
+}

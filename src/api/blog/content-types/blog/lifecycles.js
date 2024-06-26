@@ -1,35 +1,42 @@
-let isUpdating = false; // Define isUpdating
+// const { afterCreate, afterUpdate } = require("../../../channel-definition/content-types/channel-definition/lifecycles");
 
-module.exports = {
-    async afterUpdate(event) {
-        const locales = [
-            { code: 'tr', name: 'Turkish' },
-            { code: 'en', name: 'English' },
-            // { code: 'ru', name: 'Russian' },
-            // { code: 'uk', name: 'Ukrainian' },
-            // { code: 'de', name: 'German' },
-            // { code: 'el', name: 'Greek' }
-        ];
+// let isUpdating = false; // Define isUpdating
 
-        if (!isUpdating) {
-            isUpdating = true;
-            const { result } = event;
+// module.exports = {
+//     async afterUpdate(event) {
+//         // console.log('Updated entry:', event.result);
+//         const locales = await strapi.plugins['i18n'].services.locales.find();
 
+//         // console.log('Locales:', locales);
 
-            for (const locale of locales) {
-                try {
-                    await strapi.entityService.create(
-                        'api::blog.blog', // Here, specify the id of the entry to update
-                        {
-                            blogID: result.id,
-                            locale: locale.code,
-                        }
-                    );
-                } catch (error) {
-                    console.error('Error updating entry:', error);
-                }
-            }
-            isUpdating = false; // Reset isUpdating after all updates are done
-        }
-    }
-};
+//         if (!isUpdating) {
+//             isUpdating = true;
+//             const { result } = event;
+//             console.log('Created entry:', result);
+
+//             for (const locale of locales) {
+//                 try {
+//                     console.log(`Creating entry for locale ${locale.code}...`);
+//                     await strapi.entityService.create(
+//                         'api::blog.blog',
+//                         {
+//                             data: {
+//                                 blogID: result.id,
+//                                 locale: locale.code,
+//                             }
+//                         }
+//                     );
+//                     console.log(`Successfully created entry for locale ${locale.code}`);
+//                     await strapi.entityService.delete(
+//                         'api::blog.blog', result.id
+
+//                     );
+//                 } catch (error) {
+//                     console.error('Error updating entry:', error);
+//                 }
+//             }
+//             isUpdating = false; // Reset isUpdating after all updates are done
+//         }
+//     }
+    
+// };
