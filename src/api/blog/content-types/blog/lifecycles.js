@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { afterUpdate } = require('../../../channel-definition/content-types/channel-definition/lifecycles');
 let isUpdating = false; // Define isUpdating
 function getIdFromChannel(channels, channelName) {
     for (const channel of channels) {
@@ -51,8 +52,24 @@ module.exports = {
 
         if (!isUpdating) {
             isUpdating = true;
-            try {
+            console.log('Created entry:', result);
 
+            try {
+                const entry = await strapi.db.query('api::blog.blog').findOne({
+
+                    where: { id: result.id },
+                    populate: true,
+
+                });
+                console.log('EntryALO:', entry);
+                const CategoryID = entry.blog_category_definition.categoryID;
+                console.log('CategoryIDAlo:', CategoryID);
+                await strapi.entityService.update('api::blog.blog', result.id, {
+                    data: {
+
+                        categoryID: CategoryID,
+                    }
+                });
                 const filteredData = removeIds(result);
                 for (const locale of locales) {
                     console.log(`Checking locale entry for ${locale.code}...`);
@@ -62,6 +79,8 @@ module.exports = {
                             const localeBlog = await strapi.entityService.create('api::blog.blog', {
                                 data: {
                                     ...filteredData,
+                                    blog_category_definition: result.blog_category_definition,
+                                    categoryID: CategoryID,
                                     locale: locale.code,
                                 }
                             });
@@ -77,6 +96,61 @@ module.exports = {
             }
             isUpdating = false;
         }
+    },
+
+    async afterUpdate(event) {
+
+        const { result } = event;
+        console.log('Created entry:', result);
+        const locales = await strapi.plugins['i18n'].services.locales.find();
+
+
+        if (!isUpdating) {
+            isUpdating = true;
+            console.log('Created entry:', result);
+
+            try {
+                const entry = await strapi.db.query('api::blog.blog').findOne({
+
+                    where: { id: result.id },
+                    populate: true,
+
+                });
+                console.log('EntryALO:', entry);
+                const CategoryID = entry.blog_category_definition.categoryID;
+                console.log('CategoryIDAlo:', CategoryID);
+                await strapi.entityService.update('api::blog.blog', result.id, {
+                    data: {
+                        blog_category_definition: result.blog_category_definition,
+                        categoryID: CategoryID,
+                    }
+                });
+
+                for (const locale of locales) {
+                    console.log(`Checking locale entry for ${locale.code}...`);
+                    if (locale.code !== result.locale) {
+                        console.log(`Creating locale entry for ${locale.code}...`);
+                        try {
+                            const localeBlog = await strapi.entityService.update('api::blog.blog', result.id, {
+                                data: {
+                                    blog_category_definition: result.blog_category_definition,
+                                    categoryID: CategoryID,
+                                    locale: locale.code,
+                                }
+                            });
+                            console.log(`Created locale entry for ${locale.code}:`, localeBlog);
+                        } catch (error) {
+                            console.error(`Error creating locale entry for ${locale.code}:`, error);
+                        }
+                    }
+                }
+
+            } catch (error) {
+                console.error('Error during afterCreate:', error);
+            }
+            isUpdating = false;
+        }
+
     }
 
 };
