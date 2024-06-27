@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { afterUpdate } = require('../../../channel-definition/content-types/channel-definition/lifecycles');
+const blog = require('../../controllers/blog');
 let isUpdating = false; // Define isUpdating
 function getIdFromChannel(channels, channelName) {
     for (const channel of channels) {
@@ -64,9 +65,10 @@ module.exports = {
                 console.log('EntryALO:', entry);
                 const CategoryID = entry.blog_category_definition.categoryID;
                 console.log('CategoryIDAlo:', CategoryID);
+                const BlogID = result.id;
                 await strapi.entityService.update('api::blog.blog', result.id, {
                     data: {
-
+                        blogID: BlogID,
                         categoryID: CategoryID,
                     }
                 });
@@ -82,6 +84,7 @@ module.exports = {
                                     blog_category_definition: result.blog_category_definition,
                                     categoryID: CategoryID,
                                     locale: locale.code,
+                                    blogID: BlogID
                                 }
                             });
                             console.log(`Created locale entry for ${locale.code}:`, localeBlog);
@@ -118,11 +121,12 @@ module.exports = {
                 });
                 console.log('EntryALO:', entry);
                 const CategoryID = entry.blog_category_definition.categoryID;
-                console.log('CategoryIDAlo:', CategoryID);
+                const BlogID = result.id;
+                console.log('BlogIDAlo:', BlogID);
                 await strapi.entityService.update('api::blog.blog', result.id, {
                     data: {
                         blog_category_definition: result.blog_category_definition,
-                        categoryID: CategoryID,
+                        categoryID: CategoryID
                     }
                 });
 
@@ -135,7 +139,7 @@ module.exports = {
                                 data: {
                                     blog_category_definition: result.blog_category_definition,
                                     categoryID: CategoryID,
-                                    locale: locale.code,
+                                    locale: locale.code
                                 }
                             });
                             console.log(`Created locale entry for ${locale.code}:`, localeBlog);
