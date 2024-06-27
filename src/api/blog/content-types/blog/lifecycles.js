@@ -10,110 +10,73 @@ function getIdFromChannel(channels, channelName) {
     return undefined; // or some default value/error handling
 }
 
-const filePath = path.join('C:/Users/badblli/Documents/mservice.web.admin/src/components/global/sale-channel.json');
+// Fonksiyonu tanımlayalım
+function removeIds(data) {
+    // İlk olarak verinin bir kopyasını oluşturalım
+    const newData = { ...data };
 
-function updateEnumFile(newChannel) {
-    // Read the existing file
-    const component = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    // Veriden 'id' alanını kaldıralım
+    delete newData.id;
 
-    // Check if the channel already exists
-    if (!component.attributes.channel.enum.includes(newChannel)) {
-        // Add the new channel
-        component.attributes.channel.enum.push(newChannel);
+    // Veriden 'localizations' alanını kaldıralım
+    delete newData.localizations;
 
-        // Update the file
-        fs.writeFileSync(filePath, JSON.stringify(component, null, 2), 'utf8');
+    // Veriden 'createdBy' alanını kaldıralım
+    delete newData.createdBy;
 
-        console.log(`${newChannel} başarıyla eklendi.`);
-    } else {
-        console.log(`${newChannel} zaten mevcut.`);
+    // Veriden 'updatedBy' alanını kaldıralım
+    delete newData.updatedBy;
+
+    // Eğer 'layout' alanı varsa içindeki her bir nesneyi kontrol edelim ve içindeki 'id' alanlarını kaldıralım
+    if (newData.layout) {
+        newData.layout = newData.layout.map(item => {
+            const newItem = { ...item };
+            delete newItem.id;
+            return newItem;
+        });
     }
+
+    // Fonksiyon, güncellenmiş veriyi döndürsün
+    return newData;
 }
 
-function removeEnumFromFile(channel) {
-    // Read the existing file
-    const component = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-
-    // Check if the channel exists
-    const index = component.attributes.channel.enum.indexOf(channel);
-    if (index !== -1) {
-        // Remove the channel
-        component.attributes.channel.enum.splice(index, 1);
-
-        // Update the file
-        fs.writeFileSync(filePath, JSON.stringify(component, null, 2), 'utf8');
-
-        console.log(`${channel} başarıyla silindi.`);
-    } else {
-        console.log(`${channel} mevcut değil.`);
-    }
-}
 
 module.exports = {
     async afterCreate(event) {
-        const channels = await strapi.db.query('api::channel.channel').findMany();
-        console.log('Channels:', channels);
+
         const { result } = event;
         console.log('Created entry:', result);
+        const locales = await strapi.plugins['i18n'].services.locales.find();
+
 
         if (!isUpdating) {
             isUpdating = true;
             try {
-                // Update the saleChannel field and create saleChannelID with getIdFromChannel function
-                await strapi.entityService.update('api::blog.blog', result.id, {
-                    data: {
-                        saleChannel: result.saleChannel,
-                        saleChannelID: getIdFromChannel(channels, result.saleChannel)
-                    }
-                });
 
-                // Update the enum file with the new channel
-                updateEnumFile(result.saleChannel);
+                const filteredData = removeIds(result);
+                for (const locale of locales) {
+                    console.log(`Checking locale entry for ${locale.code}...`);
+                    if (locale.code !== filteredData.locale) {
+                        console.log(`Creating locale entry for ${locale.code}...`);
+                        try {
+                            const localeBlog = await strapi.entityService.create('api::blog.blog', {
+                                data: {
+                                    ...filteredData,
+                                    locale: locale.code,
+                                }
+                            });
+                            console.log(`Created locale entry for ${locale.code}:`, localeBlog);
+                        } catch (error) {
+                            console.error(`Error creating locale entry for ${locale.code}:`, error);
+                        }
+                    }
+                }
+
             } catch (error) {
                 console.error('Error during afterCreate:', error);
             }
             isUpdating = false;
         }
-    },
+    }
 
-    async afterUpdate(event) {
-        const { result } = event;
-        console.log('Updated entry:', result);
-        const channels = await strapi.db.query('api::channel.channel').findMany();
-        console.log('Channels:', channels);
-
-        if (!isUpdating) {
-            isUpdating = true;
-            try {
-                // Update the saleChannelID
-                await strapi.entityService.update('api::blog.blog', result.id, {
-                    data: {
-                        saleChannelID: getIdFromChannel(channels, result.saleChannel)
-                    }
-                });
-
-                // Optionally, update the enum file if necessary
-                updateEnumFile(result.saleChannel);
-            } catch (error) {
-                console.error('Error during afterUpdate:', error);
-            }
-            isUpdating = false;
-        }
-    },
-
-    async afterDelete(event) {
-        const { result } = event;
-        console.log('Deleted entry:', result);
-
-        if (!isUpdating) {
-            isUpdating = true;
-            try {
-                // Remove the channel from the enum file if necessary
-                removeEnumFromFile(result.saleChannel);
-            } catch (error) {
-                console.error('Error during afterDelete:', error);
-            }
-            isUpdating = false;
-        }
-    },
 };
