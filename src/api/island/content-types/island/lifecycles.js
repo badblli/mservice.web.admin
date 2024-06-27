@@ -1,37 +1,41 @@
 let isUpdating = false;
+function removeIds(data) {
+    // İlk olarak verinin bir kopyasını oluşturalım
+    const newData = { ...data };
 
-function getIdFromChannel(channel) {
-    console.log('Channel:', channel);
-    const channels = {
-        "Samosa": 1,
-        "Samos": 1,     // English name: Samos, Greek name: Σάμος (Samos)
-        "Σάμος": 1,     // Greek name: Σάμος (Samos)
-        "Rodosa": 2,
-        "Rodos": 2,     // English name: Rhodes, Greek name: Ρόδος (Rodos)
-        "Rhodes": 2,
-        "Ρόδος": 2,     // Greek name: Ρόδος (Rodos)
-        "Midilliye": 3,
-        "Midilli": 3,   // English name: Lesbos, Greek name: Λέσβος (Lesvos)
-        "Lesbos": 3,
-        "Λέσβος": 3,    // Greek name: Λέσβος (Lesvos)
-        "Kosa": 4,
-        "Kos": 4,       // English name: Kos, Greek name: Κως (Kos)
-        "Κως": 4,       // Greek name: Κως (Kos)
-        "Meise": 5,
-        "Meis": 5,      // English name: Kastellorizo, Greek name: Καστελλόριζο (Kastellorizo)
-        "Kastellorizo": 5,
-        "Καστελλόριζο": 5, // Greek name: Καστελλόριζο (Kastellorizo)
-        "Sakıza": 6,
-        "Sakız": 6,     // English name: Chios, Greek name: Χίος (Chios)
-        "Chios": 6,
-        "Χίος": 6,      // Greek name: Χίος (Chios)
-        "Meander": 7,   // English name: Meander (Menderes), Greek name: Μαίανδρος (Maiandros)
-        "Μαίανδρος": 7  // Greek name: Μαίανδρος (Maiandros)
-    };
+    // Veriden 'id' alanını kaldıralım
+    delete newData.id;
 
-    console.log('Channels:', channels[channel]);
-    return channels[channel] || null;
+    // Veriden 'localizations' alanını kaldıralım
+    delete newData.localizations;
+
+    // Veriden 'createdBy' alanını kaldıralım
+    delete newData.createdBy;
+
+    // Veriden 'updatedBy' alanını kaldıralım
+    delete newData.updatedBy;
+
+    // Eğer 'layout' alanı varsa içindeki her bir nesneyi kontrol edelim ve içindeki 'id' alanlarını kaldıralım
+    if (newData.layout) {
+        newData.layout = newData.layout.map(item => {
+            const newItem = { ...item };
+            delete newItem.id;
+            return newItem;
+        });
+    }
+
+    // Fonksiyon, güncellenmiş veriyi döndürsün
+    return newData;
 }
+function getIdFromChannel(channels, channelName) {
+    for (const channel of channels) {
+        if (channel.channelList[channelName] !== undefined) {
+            return channel.channelList[channelName];
+        }
+    }
+    return undefined; // or some default value/error handling
+}
+
 
 
 
@@ -40,19 +44,48 @@ module.exports = {
         const { result } = event;
         console.log('Created entry:', result);
 
+        const locales = await strapi.plugins['i18n'].services.locales.find();
+        const channels = await strapi.db.query('api::channel.channel').findMany();
+        console.log('Channels:', channels);
+
         if (!isUpdating) {
             isUpdating = true;
             try {
-                // Update the saleChannel field and create saleChannelID with getIdFromChannel function
+                const saleChannelID = getIdFromChannel(channels, result.saleChannel);
+                const subSaleChannelID = getIdFromChannel(channels, result.subSaleChannel);
+
+                console.log('Sale Channel:', result.saleChannel, 'Sale Channel ID:', saleChannelID);
+                console.log('Sub Sale Channel:', result.subSaleChannel, 'Sub Sale Channel ID:', subSaleChannelID);
+
                 await strapi.entityService.update('api::island.island', result.id, {
                     data: {
                         saleChannel: result.saleChannel,
-                        saleChannelID: getIdFromChannel(result.saleChannel),
+                        saleChannelID: saleChannelID,
                         subSaleChannel: result.subSaleChannel,
-                        subSaleChannelID: getIdFromChannel(result.subSaleChannel)
+                        subSaleChannelID: subSaleChannelID
                     }
                 });
 
+                const filteredData = removeIds(result);
+                for (const locale of locales) {
+                    console.log(`Checking locale entry for ${locale.code}...`);
+                    if (locale.code !== filteredData.locale) {
+                        console.log(`Creating locale entry for ${locale.code}...`);
+                        try {
+                            const localeIsland = await strapi.entityService.create('api::island.island', {
+                                data: {
+                                    ...filteredData,
+                                    saleChannelID: getIdFromChannel(channels, filteredData.saleChannel),
+                                    subSaleChannelID: getIdFromChannel(channels, filteredData.subSaleChannel),
+                                    locale: locale.code,
+                                }
+                            });
+                            console.log(`Created locale entry for ${locale.code}:`, localeIsland);
+                        } catch (error) {
+                            console.error(`Error creating locale entry for ${locale.code}:`, error);
+                        }
+                    }
+                }
 
             } catch (error) {
                 console.error('Error during afterCreate:', error);
@@ -64,21 +97,46 @@ module.exports = {
     async afterUpdate(event) {
         const { result } = event;
         console.log('Updated entry:', result);
-
+        const locales = await strapi.plugins['i18n'].services.locales.find();
+        const channels = await strapi.db.query('api::channel.channel').findMany();
+        console.log('Channels:', channels);
         if (!isUpdating) {
             isUpdating = true;
             try {
-                // Update the saleChannelID
+                const saleChannelID = getIdFromChannel(channels, result.saleChannel);
+                const subSaleChannelID = getIdFromChannel(channels, result.subSaleChannel);
+
+                console.log('Sale Channel:', result.saleChannel, 'Sale Channel ID:', saleChannelID);
+                console.log('Sub Sale Channel:', result.subSaleChannel, 'Sub Sale Channel ID:', subSaleChannelID);
                 await strapi.entityService.update('api::island.island', result.id, {
                     data: {
                         saleChannel: result.saleChannel,
-                        saleChannelID: getIdFromChannel(result.saleChannel),
+                        saleChannelID: saleChannelID,
                         subSaleChannel: result.subSaleChannel,
-                        subSaleChannelID: getIdFromChannel(result.subSaleChannel)
+                        subSaleChannelID: subSaleChannelID
                     }
                 });
 
-
+                // const filteredData = removeIds(result);
+                // for (const locale of locales) {
+                //     console.log(`Checking locale entry for ${locale.code}...`);
+                //     if (locale.code !== filteredData.locale) {
+                //         console.log(`Creating locale entry for ${locale.code}...`);
+                //         try {
+                //             const localeIsland = await strapi.entityService.create('api::island.island', {
+                //                 data: {
+                //                     ...filteredData,
+                //                     saleChannelID: getIdFromChannel(channels, filteredData.saleChannel),
+                //                     subSaleChannelID: getIdFromChannel(channels, filteredData.subSaleChannel),
+                //                     locale: locale.code,
+                //                 }
+                //             });
+                //             console.log(`Created locale entry for ${locale.code}:`, localeIsland);
+                //         } catch (error) {
+                //             console.error(`Error creating locale entry for ${locale.code}:`, error);
+                //         }
+                //     }
+                // }
             } catch (error) {
                 console.error('Error during afterUpdate:', error);
             }

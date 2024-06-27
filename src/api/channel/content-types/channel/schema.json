@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "channels",
+  "info": {
+    "singularName": "channel",
+    "pluralName": "channels",
+    "displayName": "Channel"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "channelList": {
+      "type": "json"
+    }
+  }
+}
