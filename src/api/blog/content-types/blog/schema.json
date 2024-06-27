@@ -81,13 +81,10 @@
       },
       "type": "string"
     },
-    "blogID": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "integer"
+    "blog_category_definition": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::blog-category-definition.blog-category-definition"
     }
   }
 }

@@ -4,11 +4,14 @@ export interface BlogCategoriesCategories extends Schema.Component {
   collectionName: 'components_blog_categories_categories';
   info: {
     displayName: 'categories';
+    description: '';
   };
   attributes: {
-    image: Attribute.Media & Attribute.Required;
-    title: Attribute.String;
-    categoryID: Attribute.Integer;
+    blog_category_definitions: Attribute.Relation<
+      'blog-categories.categories',
+      'oneToMany',
+      'api::blog-category-definition.blog-category-definition'
+    >;
   };
 }
 
@@ -34,7 +37,11 @@ export interface BlogPageBlogPage extends Schema.Component {
     description: '';
   };
   attributes: {
-    items: Attribute.Component<'blog-categories.categories', true>;
+    blog_category_definitions: Attribute.Relation<
+      'blog-page.blog-page',
+      'oneToMany',
+      'api::blog-category-definition.blog-category-definition'
+    >;
   };
 }
 
@@ -152,14 +159,19 @@ export interface HomePageCategories extends Schema.Component {
   collectionName: 'components_home_page_categories';
   info: {
     displayName: 'Categories';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     subtitle: Attribute.String;
-    items: Attribute.Component<'shared.categories-item', true>;
     subElement: Attribute.String;
     subRouter: Attribute.String;
     subRouterUrl: Attribute.String;
+    blog_category_definitions: Attribute.Relation<
+      'home-page.categories',
+      'oneToMany',
+      'api::blog-category-definition.blog-category-definition'
+    >;
   };
 }
 

@@ -1,42 +1,119 @@
-// const { afterCreate, afterUpdate } = require("../../../channel-definition/content-types/channel-definition/lifecycles");
+const fs = require('fs');
+const path = require('path');
+let isUpdating = false; // Define isUpdating
+function getIdFromChannel(channels, channelName) {
+    for (const channel of channels) {
+        if (channel.channelList[channelName] !== undefined) {
+            return channel.channelList[channelName];
+        }
+    }
+    return undefined; // or some default value/error handling
+}
 
-// let isUpdating = false; // Define isUpdating
+const filePath = path.join('C:/Users/badblli/Documents/mservice.web.admin/src/components/global/sale-channel.json');
 
-// module.exports = {
-//     async afterUpdate(event) {
-//         // console.log('Updated entry:', event.result);
-//         const locales = await strapi.plugins['i18n'].services.locales.find();
+function updateEnumFile(newChannel) {
+    // Read the existing file
+    const component = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
-//         // console.log('Locales:', locales);
+    // Check if the channel already exists
+    if (!component.attributes.channel.enum.includes(newChannel)) {
+        // Add the new channel
+        component.attributes.channel.enum.push(newChannel);
 
-//         if (!isUpdating) {
-//             isUpdating = true;
-//             const { result } = event;
-//             console.log('Created entry:', result);
+        // Update the file
+        fs.writeFileSync(filePath, JSON.stringify(component, null, 2), 'utf8');
 
-//             for (const locale of locales) {
-//                 try {
-//                     console.log(`Creating entry for locale ${locale.code}...`);
-//                     await strapi.entityService.create(
-//                         'api::blog.blog',
-//                         {
-//                             data: {
-//                                 blogID: result.id,
-//                                 locale: locale.code,
-//                             }
-//                         }
-//                     );
-//                     console.log(`Successfully created entry for locale ${locale.code}`);
-//                     await strapi.entityService.delete(
-//                         'api::blog.blog', result.id
+        console.log(`${newChannel} başarıyla eklendi.`);
+    } else {
+        console.log(`${newChannel} zaten mevcut.`);
+    }
+}
 
-//                     );
-//                 } catch (error) {
-//                     console.error('Error updating entry:', error);
-//                 }
-//             }
-//             isUpdating = false; // Reset isUpdating after all updates are done
-//         }
-//     }
-    
-// };
+function removeEnumFromFile(channel) {
+    // Read the existing file
+    const component = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+
+    // Check if the channel exists
+    const index = component.attributes.channel.enum.indexOf(channel);
+    if (index !== -1) {
+        // Remove the channel
+        component.attributes.channel.enum.splice(index, 1);
+
+        // Update the file
+        fs.writeFileSync(filePath, JSON.stringify(component, null, 2), 'utf8');
+
+        console.log(`${channel} başarıyla silindi.`);
+    } else {
+        console.log(`${channel} mevcut değil.`);
+    }
+}
+
+module.exports = {
+    async afterCreate(event) {
+        const channels = await strapi.db.query('api::channel.channel').findMany();
+        console.log('Channels:', channels);
+        const { result } = event;
+        console.log('Created entry:', result);
+
+        if (!isUpdating) {
+            isUpdating = true;
+            try {
+                // Update the saleChannel field and create saleChannelID with getIdFromChannel function
+                await strapi.entityService.update('api::blog.blog', result.id, {
+                    data: {
+                        saleChannel: result.saleChannel,
+                        saleChannelID: getIdFromChannel(channels, result.saleChannel)
+                    }
+                });
+
+                // Update the enum file with the new channel
+                updateEnumFile(result.saleChannel);
+            } catch (error) {
+                console.error('Error during afterCreate:', error);
+            }
+            isUpdating = false;
+        }
+    },
+
+    async afterUpdate(event) {
+        const { result } = event;
+        console.log('Updated entry:', result);
+        const channels = await strapi.db.query('api::channel.channel').findMany();
+        console.log('Channels:', channels);
+
+        if (!isUpdating) {
+            isUpdating = true;
+            try {
+                // Update the saleChannelID
+                await strapi.entityService.update('api::blog.blog', result.id, {
+                    data: {
+                        saleChannelID: getIdFromChannel(channels, result.saleChannel)
+                    }
+                });
+
+                // Optionally, update the enum file if necessary
+                updateEnumFile(result.saleChannel);
+            } catch (error) {
+                console.error('Error during afterUpdate:', error);
+            }
+            isUpdating = false;
+        }
+    },
+
+    async afterDelete(event) {
+        const { result } = event;
+        console.log('Deleted entry:', result);
+
+        if (!isUpdating) {
+            isUpdating = true;
+            try {
+                // Remove the channel from the enum file if necessary
+                removeEnumFromFile(result.saleChannel);
+            } catch (error) {
+                console.error('Error during afterDelete:', error);
+            }
+            isUpdating = false;
+        }
+    },
+};

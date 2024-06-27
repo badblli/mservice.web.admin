@@ -1025,12 +1025,11 @@ export interface ApiBlogBlog extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    blogID: Attribute.Integer &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    blog_category_definition: Attribute.Relation<
+      'api::blog.blog',
+      'oneToOne',
+      'api::blog-category-definition.blog-category-definition'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1042,6 +1041,95 @@ export interface ApiBlogBlog extends Schema.CollectionType {
       'api::blog.blog',
       'oneToMany',
       'api::blog.blog'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiBlogCategoryBlogCategory extends Schema.SingleType {
+  collectionName: 'blog_categories';
+  info: {
+    singularName: 'blog-category';
+    pluralName: 'blog-categories';
+    displayName: 'Blog Category';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    categoryList: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::blog-category.blog-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::blog-category.blog-category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiBlogCategoryDefinitionBlogCategoryDefinition
+  extends Schema.CollectionType {
+  collectionName: 'blog_category_definitions';
+  info: {
+    singularName: 'blog-category-definition';
+    pluralName: 'blog-category-definitions';
+    displayName: 'Blog Category Definition';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    category: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    categoryID: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    img: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::blog-category-definition.blog-category-definition',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::blog-category-definition.blog-category-definition',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::blog-category-definition.blog-category-definition',
+      'oneToMany',
+      'api::blog-category-definition.blog-category-definition'
     >;
     locale: Attribute.String;
   };
@@ -1566,6 +1654,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::blog.blog': ApiBlogBlog;
+      'api::blog-category.blog-category': ApiBlogCategoryBlogCategory;
+      'api::blog-category-definition.blog-category-definition': ApiBlogCategoryDefinitionBlogCategoryDefinition;
       'api::channel.channel': ApiChannelChannel;
       'api::channel-definition.channel-definition': ApiChannelDefinitionChannelDefinition;
       'api::island.island': ApiIslandIsland;

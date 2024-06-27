@@ -16,7 +16,8 @@
         "Kosa",
         "Meise",
         "Sakıza",
-        "Meander"
+        "Meander",
+        null
       ],
       "required": true,
       "default": "Samosa"

@@ -6,11 +6,10 @@
   },
   "options": {},
   "attributes": {
-    "items": {
-      "displayName": "categories",
-      "type": "component",
-      "repeatable": true,
-      "component": "blog-categories.categories"
+    "blog_category_definitions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog-category-definition.blog-category-definition"
     }
   }
 }

@@ -1,23 +1,15 @@
 {
   "collectionName": "components_blog_categories_categories",
   "info": {
-    "displayName": "categories"
+    "displayName": "categories",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "image": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
-    },
-    "title": {
-      "type": "string"
-    },
-    "categoryID": {
-      "type": "integer"
+    "blog_category_definitions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog-category-definition.blog-category-definition"
     }
   }
 }

@@ -1,7 +1,8 @@
 {
   "collectionName": "components_home_page_categories",
   "info": {
-    "displayName": "Categories"
+    "displayName": "Categories",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,11 +12,6 @@
     "subtitle": {
       "type": "string"
     },
-    "items": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.categories-item"
-    },
     "subElement": {
       "type": "string"
     },
@@ -24,6 +20,11 @@
     },
     "subRouterUrl": {
       "type": "string"
+    },
+    "blog_category_definitions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog-category-definition.blog-category-definition"
     }
   }
 }
