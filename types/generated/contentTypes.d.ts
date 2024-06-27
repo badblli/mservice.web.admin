@@ -1186,7 +1186,8 @@ export interface ApiIslandIsland extends Schema.CollectionType {
         'shared.youtube-area',
         'shared.category-questions',
         'shared.search-bar',
-        'shared.island-tours'
+        'shared.island-tours',
+        'shared.sub-item'
       ]
     > &
       Attribute.SetPluginOptions<{

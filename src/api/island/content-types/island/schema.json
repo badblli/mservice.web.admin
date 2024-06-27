@@ -96,7 +96,8 @@
         "shared.youtube-area",
         "shared.category-questions",
         "shared.search-bar",
-        "shared.island-tours"
+        "shared.island-tours",
+        "shared.sub-item"
       ]
     },
     "subSaleChannelID": {

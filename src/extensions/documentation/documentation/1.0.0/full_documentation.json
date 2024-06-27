@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-06-27T09:01:18.018Z"
+    "x-generation-date": "2024-06-27T10:32:15.259Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1867,6 +1867,9 @@
                 },
                 {
                   "$ref": "#/components/schemas/SharedIslandToursComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/SharedSubItemComponent"
                 }
               ]
             }
@@ -1958,6 +1961,9 @@
                     },
                     {
                       "$ref": "#/components/schemas/SharedIslandToursComponent"
+                    },
+                    {
+                      "$ref": "#/components/schemas/SharedSubItemComponent"
                     }
                   ]
                 }
@@ -2159,6 +2165,9 @@
                 },
                 {
                   "$ref": "#/components/schemas/SharedIslandToursComponent"
+                },
+                {
+                  "$ref": "#/components/schemas/SharedSubItemComponent"
                 }
               ]
             }
