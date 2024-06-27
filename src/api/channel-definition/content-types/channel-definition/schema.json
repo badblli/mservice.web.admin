@@ -18,9 +18,6 @@
     "saleChannelID": {
       "type": "integer"
     },
-    "domain": {
-      "type": "string"
-    },
     "domainList": {
       "type": "json"
     }

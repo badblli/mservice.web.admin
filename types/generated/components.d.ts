@@ -862,9 +862,7 @@ export interface SharedTab extends Schema.Component {
     icon: 'stack';
     description: '';
   };
-  attributes: {
-    tabs: Attribute.Relation<'shared.tab', 'oneToMany', 'api::tab.tab'>;
-  };
+  attributes: {};
 }
 
 export interface SharedTable extends Schema.Component {

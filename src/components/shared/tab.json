@@ -6,11 +6,5 @@
     "description": ""
   },
   "options": {},
-  "attributes": {
-    "tabs": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::tab.tab"
-    }
-  }
+  "attributes": {}
 }
