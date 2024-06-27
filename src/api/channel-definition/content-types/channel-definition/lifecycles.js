@@ -1,12 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 let isUpdating = false; // Define isUpdating
-function getIdFromChannel(channels, channel) {
-    console.log('Channel:', channel);
-
-
-    console.log('Channels:', channels[channel]);
-    return channels[channel] || null;
+function getIdFromChannel(channels, channelName) {
+    for (const channel of channels) {
+        if (channel.channelList[channelName] !== undefined) {
+            return channel.channelList[channelName];
+        }
+    }
+    return undefined; // or some default value/error handling
 }
 
 const filePath = path.join('C:/Users/badblli/Documents/mservice.web.admin/src/components/global/sale-channel.json');
