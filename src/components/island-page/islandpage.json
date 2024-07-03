@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_island_page_islandpages",
+  "info": {
+    "displayName": "Islandpage",
+    "icon": "sun"
+  },
+  "options": {},
+  "attributes": {
+    "IslandTour": {
+      "displayName": "islandTour",
+      "type": "component",
+      "repeatable": true,
+      "component": "island-page.island-tour"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subTitle": {
+      "type": "string"
+    }
+  }
+}

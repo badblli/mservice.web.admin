@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_island_page_island_tours",
+  "info": {
+    "displayName": "islandTour",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}
