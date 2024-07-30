@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "term_of_use_page_definitions",
+  "info": {
+    "singularName": "term-of-use-page-definition",
+    "pluralName": "term-of-use-page-definitions",
+    "displayName": "Term Of Use Page Definition"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pages": {
+      "type": "json"
+    }
+  }
+}

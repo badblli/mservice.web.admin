@@ -26,6 +26,10 @@
     "subSaleChannelID": {
       "type": "integer",
       "required": false
+    },
+    "type": {
+      "type": "string",
+      "default": "subHome"
     }
   }
 }

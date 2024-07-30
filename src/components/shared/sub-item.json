@@ -2,12 +2,25 @@
   "collectionName": "components_shared_sub_items",
   "info": {
     "displayName": "subItem",
-    "icon": "filter"
+    "icon": "filter",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "text": {
       "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "url": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::term-of-use-page.term-of-use-page"
+    },
+    "type": {
+      "type": "string",
+      "default": "term"
     }
   }
 }
