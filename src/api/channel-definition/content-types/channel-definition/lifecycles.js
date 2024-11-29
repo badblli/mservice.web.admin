@@ -4,13 +4,14 @@ let isUpdating = false; // Define isUpdating
 function getIdFromChannel(channels, channelName) {
     for (const channel of channels) {
         if (channel.channelList[channelName] !== undefined) {
+            console.log('Channel ID:', channel.channelList[channelName]);
             return channel.channelList[channelName];
         }
     }
     return undefined; // or some default value/error handling
 }
 
-const filePath = path.join('C:/Users/badblli/Documents/mservice.web.admin/src/components/global/sale-channel.json');
+const filePath = path.join('C:/Users/root/Documents/mservice.web.admin/src/components/global/sale-channel.json');
 
 function updateEnumFile(newChannel) {
     // Read the existing file

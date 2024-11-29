@@ -30,6 +30,7 @@ function removeIds(data) {
 function getIdFromChannel(channels, channelName) {
     for (const channel of channels) {
         if (channel.channelList[channelName] !== undefined) {
+            console.log('Channel ID:', channel.channelList[channelName]);
             return channel.channelList[channelName];
         }
     }

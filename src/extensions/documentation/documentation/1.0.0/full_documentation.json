@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-07-30T10:01:16.924Z"
+    "x-generation-date": "2024-11-29T08:39:26.663Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5480,7 +5480,8 @@
               "Kosa",
               "Meise",
               "Sakıza",
-              "Meander"
+              "Meander",
+              "B2BPanel"
             ]
           },
           "pageName": {
@@ -5628,7 +5629,8 @@
                   "Kosa",
                   "Meise",
                   "Sakıza",
-                  "Meander"
+                  "Meander",
+                  "B2BPanel"
                 ]
               },
               "pageName": {
@@ -5886,7 +5888,8 @@
               "Kosa",
               "Meise",
               "Sakıza",
-              "Meander"
+              "Meander",
+              "B2BPanel"
             ]
           },
           "pageName": {

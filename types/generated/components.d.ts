@@ -121,7 +121,8 @@ export interface GlobalSaleChannel extends Schema.Component {
         'Kosa',
         'Meise',
         'Sak\u0131za',
-        'Meander'
+        'Meander',
+        'B2BPanel'
       ]
     > &
       Attribute.Required &
@@ -134,10 +135,12 @@ export interface GlobalTopMenu extends Schema.Component {
   info: {
     displayName: 'TopMenu';
     icon: 'filter';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     links: Attribute.Component<'shared.links', true>;
+    more: Attribute.String;
   };
 }
 
@@ -264,6 +267,31 @@ export interface IslandPageIslandDetail extends Schema.Component {
     from: Attribute.String;
     to: Attribute.String;
     description: Attribute.Blocks;
+  };
+}
+
+export interface IslandPageIslandTour extends Schema.Component {
+  collectionName: 'components_island_page_island_tours';
+  info: {
+    displayName: 'islandTour';
+    description: '';
+  };
+  attributes: {
+    icon: Attribute.Media;
+    title: Attribute.String;
+  };
+}
+
+export interface IslandPageIslandpage extends Schema.Component {
+  collectionName: 'components_island_page_islandpages';
+  info: {
+    displayName: 'Islandpage';
+    icon: 'sun';
+  };
+  attributes: {
+    IslandTour: Attribute.Component<'island-page.island-tour', true>;
+    title: Attribute.String;
+    subTitle: Attribute.String;
   };
 }
 
@@ -731,6 +759,7 @@ export interface SharedLinks extends Schema.Component {
     target: Attribute.Enumeration<['_blank']>;
     isExternal: Attribute.Boolean & Attribute.DefaultTo<false>;
     subSaleChannelID: Attribute.Integer;
+    type: Attribute.String & Attribute.DefaultTo<'subHome'>;
   };
 }
 
@@ -851,9 +880,17 @@ export interface SharedSubItem extends Schema.Component {
   info: {
     displayName: 'subItem';
     icon: 'filter';
+    description: '';
   };
   attributes: {
     text: Attribute.String;
+    href: Attribute.String;
+    url: Attribute.Relation<
+      'shared.sub-item',
+      'oneToOne',
+      'api::term-of-use-page.term-of-use-page'
+    >;
+    type: Attribute.String & Attribute.DefaultTo<'term'>;
   };
 }
 
@@ -965,6 +1002,8 @@ declare module '@strapi/types' {
       'island-page.add-island': IslandPageAddIsland;
       'island-page.add-tour-detail': IslandPageAddTourDetail;
       'island-page.island-detail': IslandPageIslandDetail;
+      'island-page.island-tour': IslandPageIslandTour;
+      'island-page.islandpage': IslandPageIslandpage;
       'island-page.islands': IslandPageIslands;
       'island-page.tour-detail-section': IslandPageTourDetailSection;
       'journey-page.journey-page': JourneyPageJourneyPage;

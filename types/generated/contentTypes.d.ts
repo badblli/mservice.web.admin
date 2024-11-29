@@ -1030,6 +1030,12 @@ export interface ApiBlogBlog extends Schema.CollectionType {
       'oneToOne',
       'api::blog-category-definition.blog-category-definition'
     >;
+    blogID: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1404,7 +1410,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'Kosa',
         'Meise',
         'Sak\u0131za',
-        'Meander'
+        'Meander',
+        'B2BPanel'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1631,6 +1638,107 @@ export interface ApiPageDefinitionPageDefinition extends Schema.CollectionType {
   };
 }
 
+export interface ApiTermOfUsePageTermOfUsePage extends Schema.CollectionType {
+  collectionName: 'term_of_use_pages';
+  info: {
+    singularName: 'term-of-use-page';
+    pluralName: 'term-of-use-pages';
+    displayName: 'Term Of Use Page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    slug: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'toolbar';
+        }
+      >;
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    subtitle: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    images: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::term-of-use-page.term-of-use-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::term-of-use-page.term-of-use-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::term-of-use-page.term-of-use-page',
+      'oneToMany',
+      'api::term-of-use-page.term-of-use-page'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiTermOfUsePageDefinitionTermOfUsePageDefinition
+  extends Schema.SingleType {
+  collectionName: 'term_of_use_page_definitions';
+  info: {
+    singularName: 'term-of-use-page-definition';
+    pluralName: 'term-of-use-page-definitions';
+    displayName: 'Term Of Use Page Definition';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    pages: Attribute.JSON;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::term-of-use-page-definition.term-of-use-page-definition',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::term-of-use-page-definition.term-of-use-page-definition',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1661,6 +1769,8 @@ declare module '@strapi/types' {
       'api::island.island': ApiIslandIsland;
       'api::page.page': ApiPagePage;
       'api::page-definition.page-definition': ApiPageDefinitionPageDefinition;
+      'api::term-of-use-page.term-of-use-page': ApiTermOfUsePageTermOfUsePage;
+      'api::term-of-use-page-definition.term-of-use-page-definition': ApiTermOfUsePageDefinitionTermOfUsePageDefinition;
     }
   }
 }

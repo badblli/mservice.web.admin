@@ -17,9 +17,7 @@
         "Meise",
         "Sakıza",
         "Meander",
-        null,
-        null,
-        null
+        "B2BPanel"
       ],
       "required": true,
       "default": "Samosa"
